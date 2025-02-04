@@ -4,17 +4,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Humans vs. Hackers: A Fun Guide to Computer Security</title>
+        <title>The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity (tentative)</title>
         <meta
           name="description"
-          content="An entertaining look at human factors in computer security, complete with stories, memes, and best practices."
+          content="A writeup on computer security principles, human factors, and real-world breaches."
         />
       </Head>
 
       <main className="bg-gray-100 dark:bg-gray-900 min-h-screen py-10 px-4">
         <article className="max-w-3xl mx-auto bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-8 rounded-lg shadow-lg">
           <h1 className="text-3xl font-bold mb-8 text-center">
-            The Weakest Link or the Strongest Shield?
+            The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity (tentative)
           </h1>
 
           {/* INTRODUCTION */}
