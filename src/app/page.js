@@ -526,12 +526,32 @@ export default function Home() {
                 <h2 id="common-mistakes-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Common Human-Related Security Mistakes
                 </h2>
+                <p className="mb-4 hover:underline transition duration-300">
+                  Cybersecurity is not just about firewalls and encryption. Human behavior plays a crucial role in keeping systems and data safe. Unfortunately, many people unknowingly make security mistakes that put them at risk. Here are some of the most common human-related security mistakes.
+                </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Weak Passwords
                 </h3>
                 <p className="mb-4 hover:underline transition duration-300">
-                  “123456” and “password” still top the charts. A brute-force attack can crack these in seconds. Time to upgrade!
+                  If you are using "123456" or "password," it's time for a change. A brute-force attack can crack these in seconds. Upgrade to a stronger password by using a mix of uppercase and lowercase letters, numbers, and special characters.
                 </p>
+
+                <div className="mb-6">
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                    <ZoomableImage 
+                      src="/images/5.png" 
+                      alt="Table of times to brute force a password" 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    Time it takes to brute force a password.
+                  </p>
+                  <p className="text-center text-xs text-gray-400 mt-1">
+                    Source: <a href="https://www.hivesystems.com/blog/are-your-passwords-in-the-green" className="hover:underline text-blue-400">https://www.hivesystems.com/blog/are-your-passwords-in-the-green</a>
+                  </p>
+                </div>
+
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Reusing Passwords
                 </h3>
@@ -542,7 +562,7 @@ export default function Home() {
                   Falling for Phishing Scams
                 </h3>
                 <p className="mb-4 hover:underline transition duration-300">
-                  Emails pretending to be your bank or boss can trick you into handing over credentials. Always verify—scammers bank on your trust.
+                  "You've won an iPhone 16!"—Sounds exciting, but it's likely a scam. Phishing emails often claim you've won a prize or pretend to be from your bank or employer to trick you into revealing credentials. Always verify—scammers bank on your trust.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Ignoring Software Updates
@@ -564,6 +584,9 @@ export default function Home() {
                 <h2 id="best-practices-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Best Practices for Enhancing Human-Centric Security
                 </h2>
+                <p className="mb-4 hover:underline transition duration-300">
+                  By following these best practices, individuals can strengthen their security posture and reduce vulnerabilities:
+                </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Use Multi-Factor Authentication (MFA)
                 </h3>
