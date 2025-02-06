@@ -12,18 +12,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity",
+  title: "The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity - CyberInsights",
   description: "Writeup 0 for CMSC 134",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
   );
 }
+
+
