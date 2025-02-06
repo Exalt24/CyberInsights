@@ -198,10 +198,10 @@ export default function Home() {
             <aside className="md:col-span-3 hidden md:block">
               <div className="sticky space-y-6" style={{ top: "20px" }}>
                 <div className="text-justify">
-                  <h2 className="text-4xl font-bold text-blue-400 drop-shadow-lg hover:scale-105 transform transition duration-300">
+                  <h2 className="text-4xl font-bold text-blue-400 drop-shadow-lg hover:scale-105 transform transition duration-300 mb-2">
                     CyberInsights
                   </h2>
-                  <p className="text-md text-blue-300 hover:scale-105 transform transition duration-300">
+                  <p className="text-md text-blue-300 hover:scale-105 transform transition duration-300 ml-2">
                     by 5B
                   </p>
                 </div>
@@ -288,15 +288,15 @@ export default function Home() {
             </aside>
 
             <article className="md:col-span-6">
-              <h1 className="text-6xl font-bold mb-2 hover:scale-105 transform transition duration-300">
+              <h1 className="text-6xl font-bold mb-3 hover:scale-105 transform transition duration-300">
                 The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity
               </h1>
 
               <div className="text-justify mb-8">
-                <p className="text-md text-gray-500 italic mb-2 mt-4 hover:text-blue-500 transition-colors duration-300">
+                <p className="text-md text-gray-500 italic mb-2 mt-5">
                   How everyday actions impact cybersecurity
                 </p>
-                <p className="text-sm text-gray-500 hover:text-blue-500 transition-colors duration-300">
+                <p className="text-sm text-gray-500">
                   February 08, 2025
                 </p>
               </div>
@@ -305,13 +305,13 @@ export default function Home() {
                 <h2 id="introduction-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Introduction
                 </h2>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Picture this: It’s a Monday morning, you still haven’t had your coffee, and you’re trying to log into your email—only to discover your password has mysteriously changed overnight. Was it a glitch, or have hackers been plotting in the shadows like movie villains in a neon-lit basement?
                 </p>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   In reality, many security breaches start with something far less dramatic: simple human error. Welcome to our fun-filled journey into computer security, where we’ll talk about <strong>Sir Eli’s</strong> principles, real-world breaches, and the occasional meme (yes, memes!) to keep things light.
                 </p>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Spoiler: even if you have the toughest firewall in the galaxy, it’s all for naught if an unsuspecting user clicks on a shady link. Let’s dive in!
                 </p>
               </section>
@@ -322,23 +322,23 @@ export default function Home() {
                 <h2 id="what-is-computer-security-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   What is Computer Security?
                 </h2>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Ever watch a spy movie where the hero dodges lasers, cracks a code in seconds, and casually waltzes off with top-secret files? That’s basically a blueprint for what we <em>don’t</em> want in the real world—at least when it comes to our own data. <strong>Computer security</strong> is the shield we put up to block unauthorized access to our digital lives.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   The Basics
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   At its core, computer security revolves around three big goals:
                 </p>
                 <ol className="list-decimal ml-6 mb-4">
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Confidentiality</strong>: Keeping secrets secret.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Integrity</strong>: Ensuring data can’t be tampered with.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Availability</strong>: Making sure systems work when you need them.
                   </li>
                 </ol>
@@ -346,13 +346,13 @@ export default function Home() {
                   Why It Matters
                 </h3>
                 <ul className="list-disc ml-6">
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Personal Privacy</strong>: You probably don’t want strangers sifting through your selfies or bank details.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Financial Protection</strong>: Hackers love a quick payday.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Business Security</strong>: One data breach could spell disaster and lots of awkward apology emails.
                   </li>
                 </ul>
@@ -384,67 +384,67 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Threat Model
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Threat modeling is about asking: <em>What do attackers want?</em> <em>What can they do?</em> and <em>Is it worth defending?</em> Knowing your enemy means you can choose defenses that make sense for your situation—whether you’re a global enterprise or a freelance artist.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Human Factors
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   This is the big one—“Humans are the weakest link.” Even the best systems fail if we’re clicking away on dubious links or ignoring warnings.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Security is Economics
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   There’s always a cost-benefit balance in security. No system is 100% secure without becoming 0% usable. Think about bike locks: they can all be broken, but the goal is to deter casual theft and make it <em>not worth the effort</em>.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Detect If You Can’t Prevent
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   You can’t stop every attack, but if you detect weird activity early, you can respond before it’s too late. Think of this like a home alarm system—you may not stop the break-in, but you’ll know it happened.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Defense in Depth
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Layer multiple defenses, so if one fails, others can still stand. It’s the onion approach: many layers, sometimes tears.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Least Privilege
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Only grant the minimal access needed. If an account is compromised but has limited privileges, damage remains minimal.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Separation of Responsibility
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   No single person or system should have unlimited power. Requiring multiple parties to collaborate makes fraud or sabotage much harder.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Complete Mediation
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Validate <strong>every</strong> access request rather than assuming trust after the first time. It’s like checking IDs at the door every day, not just once.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Shannon’s Maxim (Kerckhoffs’ Principle)
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Assume attackers know how your system works. Security through obscurity (like hiding a house key under the mat) isn’t true security.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Fail-Safe Defaults
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   If something breaks, fail <em>securely</em> rather than leaving everything open.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Security from the Start
                 </h3>
-                <p className="hover:underline transition duration-300">
+                <p className=" ">
                   Building security in from the beginning is easier and cheaper than trying to retrofit it later—like adding locks during home construction instead of after you’ve moved in.
                 </p>
               </section>
@@ -472,24 +472,24 @@ export default function Home() {
                   </p>
                 </div>
 
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4  ">
                   Even with top-notch firewalls, human behavior can undermine it all in a single click. Sir Eli’s takeaway? People are lazy, gullible, or simply unaware. All it takes is one “free iPhone giveaway” email to wreak havoc.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Why Humans Are the Weakest Link
                 </h3>
                 <ul className="list-disc ml-6 mb-4">
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Laziness:</strong> We prefer easy, memorable passwords or skip reading warnings.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Curiosity/Gullibility:</strong> Phishing emails exploit our desire for freebies or “urgent” info.
                   </li>
-                  <li className="mb-2 hover:underline transition duration-300">
+                  <li className="mb-2  ">
                     <strong>Overconfidence:</strong> “I’ll never get hacked” is often famous last words.
                   </li>
                 </ul>
-                <p className="hover:underline transition duration-300">
+                <p className=" ">
                   On the bright side, once we recognize our vulnerabilities, we can take steps to become the strongest defense—through training, careful habits, and a dash of healthy paranoia.
                 </p>
               </section>
@@ -497,26 +497,85 @@ export default function Home() {
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section id="real-world-breaches" aria-labelledby="real-world-breaches-heading" className="mb-10">
+                
                 <h2 id="real-world-breaches-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Real-World Security Breaches Due to Human Factors
                 </h2>
+
+                <p className="mb-4  ">
+                  Let’s take a trip down memory lane with some facepalm-worthy security breaches:
+                </p>
+
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   The Equifax Data Breach
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  In 2017, Equifax exposed sensitive data of over 147 million people. The root cause? A missed software patch. Translation: someone snoozed on an urgent update, leading to a meltdown.
+
+                <div className="mb-6">
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                    <ZoomableImage 
+                      src="/images/example1.jpg" 
+                      alt="The Equifax Data Breach" 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <em>Equifax Data Breach – A small security lapse led to one of the biggest data breaches in history. </em>
+                  </p>
+                  <p className="text-center text-xs text-gray-400 mt-1">
+                    Source: <a href="https://www.csoonline.com/article/567833/equifax-data-breach-faq-what-happened-who-was-affected-what-was-the-impact.html" className="hover:underline text-blue-400">https://www.csoonline.com/article/567833/</a>
+                  </p>
+                </div>
+
+                <p className="mb-4  ">
+                  In 2017, Equifax, a major credit reporting agency, suffered one of the largest data breaches in history by failing to patch a critical Apache Struts vulnerability despite multiple warnings. Worse, an expired security certificate prevented their system from detecting the breach for months. Hackers accessed sensitive data of 145 million U.S. citizens and over 10 million people in the UK. Equifax was fined £500,000 in the UK for failing to protect consumer data.
                 </p>
+
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Strathmore College Data Breach
                 </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  A story of <em>phishing success</em>—faculty and staff clicked on questionable links, entering login details on a fake website. Chaos ensued. Weak password policies and poor oversight made it worse.
+
+                <div className="mb-6">
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                    <ZoomableImage 
+                      src="/images/example2.jpg" 
+                      alt="The Strathmore College Data Breach" 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <em>Strathmore College Data Breach – A simple upload mistake exposed students’ most private information. </em>
+                  </p>
+                  <p className="text-center text-xs text-gray-400 mt-1">
+                    Source: <a href="https://www.theguardian.com/australia-news/2018/aug/22/melbourne-student-health-records-posted-online-in-appalling-privacy-breach" className="hover:underline text-blue-400">https://www.theguardian.com/australia-news/</a>
+                  </p>
+                </div>
+
+                <p className="mb-4  ">
+                  In August 2018, an employee at Strathmore Secondary College accidentally uploaded over 300 students’ sensitive records to the school’s intranet, exposing medical conditions, medications, and learning difficulties. The files remained accessible for a day, allowing students and parents to view or download them. The incident highlighted the risks of mishandling sensitive data, prompting staff training and an investigation by the Australian Department of Education.
                 </p>
+
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Marine Corps Data Breach
                 </h3>
-                <p className="hover:underline transition duration-300">
-                  Sensitive info was leaked due to misconfigurations or accidental exposure. Even highly disciplined organizations can be undone by a single oversight, showing <em>no one is immune</em> to human error.
+
+                <div className="mb-6">
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                    <ZoomableImage 
+                      src="/images/example3.jpg" 
+                      alt="The Marine Corps Data Breach" 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <em>Marine Corps Data Breach – One unencrypted email, 21,500 personal records at risk. </em>
+                  </p>
+                  <p className="text-center text-xs text-gray-400 mt-1">
+                    Source: <a href="https://www.marinecorpstimes.com/news/your-marine-corps/2018/02/28/major-data-breach-at-marine-forces-reserve-impacts-thousands/" className="hover:underline text-blue-400">https://www.marinecorpstimes.com/news/</a>
+                  </p>
+                </div>
+
+                <p className=" ">
+                  The United States Marine Corps faced a serious data leak in early 2018 when the Defense Travel System (DTS) accidentally sent an unencrypted email with an attachment to the wrong distribution list. The email, intended for internal use, included bank account numbers, Social Security Numbers and emergency contact information of around 21,500 Marines, sailors, and civilians. Once the breach was discovered, the Marines attempted to recall the emails and announced plans to strengthen security measures for sensitive communications.
                 </p>
               </section>
 
@@ -526,57 +585,33 @@ export default function Home() {
                 <h2 id="common-mistakes-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Common Human-Related Security Mistakes
                 </h2>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4">
                   Cybersecurity is not just about firewalls and encryption. Human behavior plays a crucial role in keeping systems and data safe. Unfortunately, many people unknowingly make security mistakes that put them at risk. Here are some of the most common human-related security mistakes.
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Weak Passwords
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  If you are using "123456" or "password," it's time for a change. A brute-force attack can crack these in seconds. Upgrade to a stronger password by using a mix of uppercase and lowercase letters, numbers, and special characters.
-                </p>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage 
-                      src="/images/5.png" 
-                      alt="Table of times to brute force a password" 
-                      className="w-full h-full object-contain" 
-                    />
+                <ul className="list-disc pl-5 space-y-4">
+                  <li><strong>Weak Passwords.</strong> If you are using "123456" or "password," it's time for a change. A brute-force attack can crack these in seconds. Upgrade to a stronger password by using a mix of uppercase and lowercase letters, numbers, and special characters.</li>
+                  <div className="mb-6">
+                    <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                      <ZoomableImage 
+                        src="/images/5.png" 
+                        alt="Table of times to brute force a password" 
+                        className="w-full h-full object-contain" 
+                      />
+                    </div>
+                    <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                      Time it takes to brute force a password.
+                    </p>
+                    <p className="text-center text-xs text-gray-400 mt-1">
+                      Source: <a href="https://www.hivesystems.com/blog/are-your-passwords-in-the-green" className="hover:underline text-blue-400">https://www.hivesystems.com/blog/are-your-passwords-in-the-green</a>
+                    </p>
                   </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    Time it takes to brute force a password.
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.hivesystems.com/blog/are-your-passwords-in-the-green" className="hover:underline text-blue-400">https://www.hivesystems.com/blog/are-your-passwords-in-the-green</a>
-                  </p>
-                </div>
-
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Reusing Passwords
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  If one site gets hacked, attackers test that username-password combo everywhere. Reuse = big no-no.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Falling for Phishing Scams
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  "You've won an iPhone 16!"—Sounds exciting, but it's likely a scam. Phishing emails often claim you've won a prize or pretend to be from your bank or employer to trick you into revealing credentials. Always verify—scammers bank on your trust.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Ignoring Software Updates
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  “Remind me later” is the siren song of procrastination. These updates often patch major vulnerabilities, so skipping them leaves your system wide open.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Trusting Public Wi-Fi
-                </h3>
-                <p className="hover:underline transition duration-300">
-                  Free coffee shop Wi-Fi might be a hacker’s paradise. Avoid logging into sensitive accounts on unsecured networks, or use a VPN.
-                </p>
+                  <li><strong>Reusing Passwords.</strong> If one site gets hacked, attackers test that username-password combo everywhere. Reuse = big no-no.</li>
+                  <li><strong>Falling for Phishing Scams.</strong> "You've won an iPhone 16!"—Sounds exciting, but it's likely a scam. Phishing emails often claim you've won a prize or pretend to be from your bank or employer to trick you into revealing credentials. Always verify—scammers bank on your trust.</li>
+                  <li><strong>Ignoring Software Updates.</strong> “Remind me later” is the siren song of procrastination. These updates often patch major vulnerabilities, so skipping them leaves your system wide open.</li>
+                  <li><strong>Trusting Public Wi-Fi.</strong> Free coffee shop Wi-Fi might be a hacker’s paradise. Avoid logging into sensitive accounts on unsecured networks, or use a VPN.</li>
+                </ul>
               </section>
+
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
@@ -584,51 +619,18 @@ export default function Home() {
                 <h2 id="best-practices-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Best Practices for Enhancing Human-Centric Security
                 </h2>
-                <p className="mb-4 hover:underline transition duration-300">
+                <p className="mb-4">
                   By following these best practices, individuals can strengthen their security posture and reduce vulnerabilities:
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Use Multi-Factor Authentication (MFA)
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Password plus something else (like a code texted to you or a fingerprint). Even if someone steals your password, they still need that second factor.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Don’t Be Lazy with Your Passwords!
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Use passphrases (e.g., “CorrectHorseBatteryStaple”), and consider a password manager. And never reuse passwords—ever.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Keep Software Up-to-Date
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Stop clicking “remind me later.” Updates patch holes hackers love to exploit. Automatic updates are your friend.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Avoid Opening Suspicious Emails
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Check the sender’s address, watch for grammar errors, and if something is “too good to be true,” it’s probably a trap.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Use Secure Networks
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Steer clear of public Wi-Fi for sensitive transactions. If you must, a VPN is your digital invisibility cloak.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Back Up Your Data
-                </h3>
-                <p className="mb-4 hover:underline transition duration-300">
-                  Whether it’s ransomware or a spilled drink on your laptop, periodic backups can save your day.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Stay Informed &amp; Train Regularly
-                </h3>
-                <p className="hover:underline transition duration-300">
-                  Cyber threats evolve; staying updated on phishing techniques or new scams keeps you one step ahead. Conduct quick security refresher training or “phish drills” in your organization.
-                </p>
+                <ul className="list-disc pl-5 space-y-4">
+                  <li><strong>Use Multi-Factor Authentication (MFA).</strong> Password plus something else (like a code texted to you or a fingerprint). Even if someone steals your password, they still need that second factor.</li>
+                  <li><strong>Don’t Be Lazy with Your Passwords!</strong> Use passphrases (e.g., “CorrectHorseBatteryStaple”), and consider a password manager. And never reuse passwords—ever.</li>
+                  <li><strong>Keep Software Up-to-Date.</strong> Stop clicking “remind me later.” Updates patch holes hackers love to exploit. Automatic updates are your friend.</li>
+                  <li><strong>Avoid Opening Suspicious Emails.</strong> Check the sender’s address, watch for grammar errors, and if something is “too good to be true,” it’s probably a trap.</li>
+                  <li><strong>Use Secure Networks.</strong> Steer clear of public Wi-Fi for sensitive transactions. If you must, a VPN is your digital invisibility cloak.</li>
+                  <li><strong>Back Up Your Data.</strong> Whether it’s ransomware or a spilled drink on your laptop, periodic backups can save your day.</li>
+                  <li><strong>Stay Informed &amp; Train Regularly.</strong> Cyber threats evolve; staying updated on phishing techniques or new scams keeps you one step ahead. Conduct quick security refresher training or “phish drills” in your organization.</li>
+                </ul>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -637,26 +639,15 @@ export default function Home() {
                 <h2 id="conclusion-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Conclusion
                 </h2>
-                <p className="mb-4 hover:underline transition duration-300">
-                  We’ve explored just how crucial the human element is in computer security. Even the strongest locks can’t stop someone who opens the door voluntarily! By combining robust technology with sensible, vigilant habits, we can turn the so-called weakest link into a formidable line of defense.
+                <p className="mb-4  ">
+                  At the end of the day, technology can only do so much—people are the real weak link in cybersecurity. But with better education, smarter habits, and a little common sense, we can turn humans from security liabilities into security assets.
                 </p>
-                <p className="mb-4 hover:underline transition duration-300">
-                  So the next time you’re tempted to reuse “password123,” or click that shady “Claim Your Free iPhone!” link, remember: a moment of caution can save you from a world of trouble. Stay smart, stay safe, and may the <em>firewall</em> be ever in your favor!
+                <p className="mb-4  ">
+                  And remember: If you ever receive an email saying you’ve won a free iPhone, just delete it. Unless, of course, you enjoy giving hackers VIP access to your personal data.
                 </p>
-                <p className="mb-4 hover:underline transition duration-300">
-                  <strong>Call to Action:</strong>
+                <p className="mb-4  ">
+                  Stay safe, stay smart, and for the love of cybersecurity—stop using "password123"!
                 </p>
-                <ul className="list-disc ml-6">
-                  <li className="mb-2 hover:underline transition duration-300">
-                    Enable MFA on key accounts immediately.
-                  </li>
-                  <li className="mb-2 hover:underline transition duration-300">
-                    Share this article with a friend who’s dangerously close to “123456.”
-                  </li>
-                  <li className="mb-2 hover:underline transition duration-300">
-                    Keep learning—cybersecurity is a moving target, and staying informed is your best shield.
-                  </li>
-                </ul>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -675,10 +666,10 @@ export default function Home() {
                       alt="Carl Asoy"
                       className="w-24 h-24 rounded-full mb-2"
                     />
-                    <p className="text-center text-lg font-medium hover:underline transition duration-300">
+                    <p className="text-center text-lg font-medium  ">
                       Asoy, Carl
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2  ">
                       Cybersecurity researcher passionate about network defense.
                     </p>
                   </div>
@@ -688,10 +679,10 @@ export default function Home() {
                       alt="Jade Cataques"
                       className="w-24 h-24 rounded-full mb-2"
                     />
-                    <p className="text-center text-lg font-medium hover:underline transition duration-300">
+                    <p className="text-center text-lg font-medium  ">
                       Cataques, Jade
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2  ">
                       Innovator in cybersecurity solutions and data protection.
                     </p>
                   </div>
@@ -701,10 +692,10 @@ export default function Home() {
                       alt="Daniel Cruz"
                       className="w-24 h-24 rounded-full mb-2"
                     />
-                    <p className="text-center text-lg font-medium hover:underline transition duration-300">
+                    <p className="text-center text-lg font-medium  ">
                       Cruz, Daniel
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2  ">
                       Just a chill guy.
                     </p>
                   </div>
@@ -714,10 +705,10 @@ export default function Home() {
                       alt="Liam Gillamac"
                       className="w-24 h-24 rounded-full mb-2"
                     />
-                    <p className="text-center text-lg font-medium hover:underline transition duration-300">
+                    <p className="text-center text-lg font-medium  ">
                       Gillamac, Liam
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2  ">
                       Expert in software security and system resilience.
                     </p>
                   </div>
