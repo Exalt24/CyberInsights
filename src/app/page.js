@@ -366,13 +366,13 @@ export default function Home() {
                 </h2>
                 
                 <div className="mb-6">
-                  <div className="w-full h-64 flex items-center justify-center rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
-                    <ZoomableImage 
-                      src="/images/3.png" 
-                      alt="Defense-in-Depth cybersecurity model" 
-                      className="w-full h-full object-contain" 
-                    />
-                  </div>
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                  <ZoomableImage 
+                    src="/images/3.png" 
+                    alt="Defense-in-Depth cybersecurity model" 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
                     A layered approach to cybersecurity: Defense-in-Depth model.
                   </p>
@@ -457,7 +457,7 @@ export default function Home() {
                 </h2>
                 
                 <div className="mb-6">
-                  <div className="w-full h-64 flex items-center justify-center rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
                     <ZoomableImage 
                       src="/images/4.jpg" 
                       alt="Phishing scam disguised as an iPhone giveaway" 
@@ -639,11 +639,14 @@ export default function Home() {
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section id="about-authors" aria-labelledby="about-authors-heading" className="mt-12 mb-4">
-                <h2 id="about-authors-heading" className="text-2xl font-semibold mb-8 text-center hover:text-blue-500 transition-colors duration-300">
+                <h2
+                  id="about-authors-heading"
+                  className="text-2xl font-semibold mb-8 text-center hover:text-blue-500 transition-colors duration-300"
+                >
                   Meet the Authors
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                  <div className="flex flex-col items-center">
+                  <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
                     <ZoomableImage
                       src="/images/carl.jpg"
                       alt="Carl Asoy"
@@ -652,11 +655,11 @@ export default function Home() {
                     <p className="text-center text-lg font-medium hover:underline transition duration-300">
                       Asoy, Carl
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
                       Cybersecurity researcher passionate about network defense.
                     </p>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
                     <ZoomableImage
                       src="/images/jade.jpg"
                       alt="Jade Cataques"
@@ -665,11 +668,11 @@ export default function Home() {
                     <p className="text-center text-lg font-medium hover:underline transition duration-300">
                       Cataques, Jade
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
                       Innovator in cybersecurity solutions and data protection.
                     </p>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
                     <ZoomableImage
                       src="/images/daniel.jpg"
                       alt="Daniel Cruz"
@@ -678,11 +681,11 @@ export default function Home() {
                     <p className="text-center text-lg font-medium hover:underline transition duration-300">
                       Cruz, Daniel
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
                       Just a chill guy.
                     </p>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
                     <ZoomableImage
                       src="/images/liam.jpg"
                       alt="Liam Gillamac"
@@ -691,12 +694,14 @@ export default function Home() {
                     <p className="text-center text-lg font-medium hover:underline transition duration-300">
                       Gillamac, Liam
                     </p>
-                    <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
+                    <p className="text-center text-sm text-gray-500 mt-2 hover:underline transition duration-300">
                       Expert in software security and system resilience.
                     </p>
                   </div>
                 </div>
               </section>
+
+
             </article>
 
             <aside className="md:col-span-1 hidden md:block">
