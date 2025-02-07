@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity - CyberInsights",
   description: "Writeup 0 for CMSC 134",
+  icons: {
+    icon: "logo.svg",
+  }
 };
 
 export default function RootLayout({ children }) {
@@ -25,5 +28,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-

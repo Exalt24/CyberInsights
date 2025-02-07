@@ -194,7 +194,7 @@ export default function Home() {
 
       <div className={isDarkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"}>
         <main id="top" className="min-h-screen py-7 px-4">
-          <div className="max-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-4">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-4">
             <aside className="md:col-span-3 hidden md:block">
               <div className="sticky space-y-6" style={{ top: "20px" }}>
                 <div className="text-justify">
@@ -309,10 +309,10 @@ export default function Home() {
                   Picture this: It’s a Monday morning, you still haven’t had your coffee, and you’re trying to log into your email—only to discover your password has mysteriously changed overnight. Was it a glitch, or have hackers been plotting in the shadows like movie villains in a neon-lit basement?
                 </p>
                 <p className="mb-4  ">
-                  In reality, many security breaches start with something far less dramatic: simple human error. Welcome to our fun-filled journey into computer security, where we’ll talk about <strong>Sir Eli’s</strong> principles, real-world breaches, and the occasional meme (yes, memes!) to keep things light.
+                  In reality, many security breaches start with something far less dramatic: simple human error. Welcome to our fun-filled journey into computer security, where we’ll talk about security principles, specifically the <strong>human factors principle</strong>, real-world breaches, and the occasional jokes (yes, jokes!) to keep things light.
                 </p>
                 <p className="mb-4  ">
-                  Spoiler: even if you have the toughest firewall in the galaxy, it’s all for naught if an unsuspecting user clicks on a shady link. Let’s dive in!
+                  Spoiler Alert! Even if you have the toughest firewall in the galaxy, it’s all for nothing if an unsuspecting user clicks on a shady link. Let’s dive in!
                 </p>
               </section>
 
@@ -364,13 +364,13 @@ export default function Home() {
                 <h2 id="security-principles-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Overview of Security Principles
                 </h2>
-                
+
                 <div className="mb-6">
                 <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                  <ZoomableImage 
-                    src="/images/3.png" 
-                    alt="Defense-in-Depth cybersecurity model" 
-                    className="w-full h-full object-contain" 
+                  <ZoomableImage
+                    src="/images/3.png"
+                    alt="Defense-in-Depth cybersecurity model"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
@@ -381,6 +381,15 @@ export default function Home() {
                   </p>
                 </div>
 
+                <p className="mb-4  ">
+                  Principles are like the <em>secret sauce</em> of decision-making—they help us make choices that align with our values and goals. And just like they guide us in life, they are also the guiding light of the cybersecurity world.
+                </p>
+                <p className="mb-4  ">
+                  In this article, we will first provide an overview of the 11 security principles before proceeding to the in-depth discussion of the <strong>human factors principle</strong>. These principles act as the shield protecting systems, data, and users from digital villains—hackers, data breaches, and malicious threats.
+                </p>
+                <p className="mb-8  ">
+                  Ready to understand how these principles work their magic? Let's jump in and explore the cybersecurity essentials that keep the bad guys at bay!
+                </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Threat Model
                 </h3>
@@ -391,7 +400,7 @@ export default function Home() {
                   Human Factors
                 </h3>
                 <p className="mb-4  ">
-                  This is the big one—“Humans are the weakest link.” Even the best systems fail if we’re clicking away on dubious links or ignoring warnings.
+                  The main focus of this article and this is the big one—“Humans are the weakest link.” Even the best systems fail if humans fail because <em>to err is human</em>.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Security is Economics
@@ -403,7 +412,7 @@ export default function Home() {
                   Detect If You Can’t Prevent
                 </h3>
                 <p className="mb-4  ">
-                  You can’t stop every attack, but if you detect weird activity early, you can respond before it’s too late. Think of this like a home alarm system—you may not stop the break-in, but you’ll know it happened.
+                  You can’t stop every attack, but if you detect weird activity early on, you can respond before it’s too late. Think of this like a home alarm system—you may not stop the break-in, but you’ll know it happened.
                 </p>
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Defense in Depth
@@ -444,8 +453,14 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
                   Security from the Start
                 </h3>
-                <p className=" ">
+                <p className="mb-8 ">
                   Building security in from the beginning is easier and cheaper than trying to retrofit it later—like adding locks during home construction instead of after you’ve moved in.
+                </p>
+                <p className="mb-4 ">
+                  Remember these security principles because you never know when a cybersecurity breach or a malicious attack might come knocking. But don’t worry, you’ve got this!
+                </p>
+                <p className="mb-4 ">
+                  Speaking of "you," let's shift gears and dive deep into the <strong>human factors principle</strong>—because, let's face it, the biggest security threat could be YOU or just sitting right across from you. Let’s explore how humans play a key role in cybersecurity, for better or worse.
                 </p>
               </section>
 
@@ -455,13 +470,13 @@ export default function Home() {
                 <h2 id="human-factors-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Human Factors as One of the Key Security Principles
                 </h2>
-                
+
                 <div className="mb-6">
                 <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage 
-                      src="/images/4.jpg" 
-                      alt="Phishing scam disguised as an iPhone giveaway" 
-                      className="w-full h-full object-contain" 
+                    <ZoomableImage
+                      src="/images/4.jpg"
+                      alt="Phishing scam disguised as an iPhone giveaway"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
@@ -497,25 +512,25 @@ export default function Home() {
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section id="real-world-breaches" aria-labelledby="real-world-breaches-heading" className="mb-10">
-                
+
                 <h2 id="real-world-breaches-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Real-World Security Breaches Due to Human Factors
                 </h2>
 
-                <p className="mb-4  ">
-                  Let’s take a trip down memory lane with some facepalm-worthy security breaches:
+                <p className="mb-6  ">
+                  Let’s take a fun trip down memory lane and revisit some <em>oops</em> moments in cybersecurity history. Prepare yourselves for some facepalm-worthy breaches where humans were definitely the weakest link in the chain.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  The Equifax Data Breach
+                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
+                  The Equifax Data Breach – A Big Oops in Credit Reporting
                 </h3>
 
                 <div className="mb-6">
                 <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage 
-                      src="/images/example1.jpg" 
-                      alt="The Equifax Data Breach" 
-                      className="w-full h-full object-contain" 
+                    <ZoomableImage
+                      src="/images/example1.jpg"
+                      alt="The Equifax Data Breach"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
@@ -526,20 +541,20 @@ export default function Home() {
                   </p>
                 </div>
 
-                <p className="mb-4  ">
+                <p className="mb-6  ">
                   In 2017, Equifax, a major credit reporting agency, suffered one of the largest data breaches in history by failing to patch a critical Apache Struts vulnerability despite multiple warnings. Worse, an expired security certificate prevented their system from detecting the breach for months. Hackers accessed sensitive data of 145 million U.S. citizens and over 10 million people in the UK. Equifax was fined £500,000 in the UK for failing to protect consumer data.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Strathmore College Data Breach
+                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
+                  Strathmore College Data Breach – One Upload Away from a Nightmare
                 </h3>
 
                 <div className="mb-6">
                 <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage 
-                      src="/images/example2.jpg" 
-                      alt="The Strathmore College Data Breach" 
-                      className="w-full h-full object-contain" 
+                    <ZoomableImage
+                      src="/images/example2.jpg"
+                      alt="The Strathmore College Data Breach"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
@@ -550,32 +565,39 @@ export default function Home() {
                   </p>
                 </div>
 
-                <p className="mb-4  ">
+                <p className="mb-6  ">
                   In August 2018, an employee at Strathmore Secondary College accidentally uploaded over 300 students’ sensitive records to the school’s intranet, exposing medical conditions, medications, and learning difficulties. The files remained accessible for a day, allowing students and parents to view or download them. The incident highlighted the risks of mishandling sensitive data, prompting staff training and an investigation by the Australian Department of Education.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Marine Corps Data Breach
+                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
+                  Marine Corps Data Breach – One unencrypted email, 21,500 personal records at risk
                 </h3>
 
                 <div className="mb-6">
                 <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage 
-                      src="/images/example3.jpg" 
-                      alt="The Marine Corps Data Breach" 
-                      className="w-full h-full object-contain" 
+                    <ZoomableImage
+                      src="/images/example3.jpg"
+                      alt="The Marine Corps Data Breach"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Marine Corps Data Breach – One unencrypted email, 21,500 personal records at risk. </em>
+                    <em>Marine Corps Data Breach</em>
                   </p>
                   <p className="text-center text-xs text-gray-400 mt-1">
                     Source: <a href="https://www.marinecorpstimes.com/news/your-marine-corps/2018/02/28/major-data-breach-at-marine-forces-reserve-impacts-thousands/" className="hover:underline text-blue-400">https://www.marinecorpstimes.com/news/</a>
                   </p>
                 </div>
 
-                <p className=" ">
+                <p className="mb-6  ">
                   The United States Marine Corps faced a serious data leak in early 2018 when the Defense Travel System (DTS) accidentally sent an unencrypted email with an attachment to the wrong distribution list. The email, intended for internal use, included bank account numbers, Social Security Numbers and emergency contact information of around 21,500 Marines, sailors, and civilians. Once the breach was discovered, the Marines attempted to recall the emails and announced plans to strengthen security measures for sensitive communications.
+                </p>
+
+                <p className="mb-4 ">
+                  <strong><em>So, what is the moral of the story?</em></strong>
+                </p>
+                <p className="mb-4 ">
+                  <em>To err is human, but to prevent a data breach is divine.</em> These real-world examples show how simple mistakes can lead to catastrophic consequences. By understanding the risks and implementing best practices, organizations or even us commonfolks can avoid becoming the next headline.
                 </p>
               </section>
 
@@ -588,14 +610,14 @@ export default function Home() {
                 <p className="mb-4">
                   Cybersecurity is not just about firewalls and encryption. Human behavior plays a crucial role in keeping systems and data safe. Unfortunately, many people unknowingly make security mistakes that put them at risk. Here are some of the most common human-related security mistakes.
                 </p>
-                <ul className="list-disc pl-5 space-y-4">
+                <ul className="list-disc pl-5 space-y-4 mb-6">
                   <li><strong>Weak Passwords.</strong> If you are using "123456" or "password," it's time for a change. A brute-force attack can crack these in seconds. Upgrade to a stronger password by using a mix of uppercase and lowercase letters, numbers, and special characters.</li>
                   <div className="mb-6">
                     <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                      <ZoomableImage 
-                        src="/images/5.png" 
-                        alt="Table of times to brute force a password" 
-                        className="w-full h-full object-contain" 
+                      <ZoomableImage
+                        src="/images/5.png"
+                        alt="Table of times to brute force a password"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
@@ -610,6 +632,12 @@ export default function Home() {
                   <li><strong>Ignoring Software Updates.</strong> “Remind me later” is the siren song of procrastination. These updates often patch major vulnerabilities, so skipping them leaves your system wide open.</li>
                   <li><strong>Trusting Public Wi-Fi.</strong> Free coffee shop Wi-Fi might be a hacker’s paradise. Avoid logging into sensitive accounts on unsecured networks, or use a VPN.</li>
                 </ul>
+                <p className="mb-4">
+                  With all these <em>relatable mistakes</em>, one thing’s clear: the best part about being human is that we make mistakes, own up to them, and learn from them. It is what we called as being <strong>wonderfully human</strong>.
+                </p>
+                <p className="mb-4">
+                  So, as we embrace our glorious imperfections, let’s wrap this up with the <em>final</em> chapter: <strong>Best Practices for Enhancing Human-Centric Security</strong>. Open your notes and jot down the super actionable tips that will help you keep your security game strong—because as much as we mess up, we can still turn things around in our favor.
+                </p>
               </section>
 
 
@@ -620,7 +648,7 @@ export default function Home() {
                   Best Practices for Enhancing Human-Centric Security
                 </h2>
                 <p className="mb-4">
-                  By following these best practices, individuals can strengthen their security posture and reduce vulnerabilities:
+                  By following these best practices, we can strengthen their security posture and reduce vulnerabilities:
                 </p>
                 <ul className="list-disc pl-5 space-y-4">
                   <li><strong>Use Multi-Factor Authentication (MFA).</strong> Password plus something else (like a code texted to you or a fingerprint). Even if someone steals your password, they still need that second factor.</li>
