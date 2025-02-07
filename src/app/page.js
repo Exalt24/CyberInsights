@@ -183,6 +183,7 @@ export default function Home() {
         <title>
           The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity - CyberInsights
         </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
           content="A writeup on computer security principles, human factors, and real-world breaches."
@@ -194,10 +195,18 @@ export default function Home() {
 
       <div className={isDarkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"}>
         <main id="top" className="min-h-screen py-7 px-4">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-4">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-5">
             <aside className="md:col-span-3 hidden md:block">
               <div className="sticky space-y-6" style={{ top: "20px" }}>
-                <div className="text-justify">
+              <div className="flex items-center text-justify">
+                <Image
+                  src="/logo.svg"
+                  alt="CyberInsights Logo"
+                  width={50}
+                  height={50}
+                  className="mr-2"
+                />
+                <div>
                   <h2 className="text-4xl font-bold text-blue-400 drop-shadow-lg hover:scale-105 transform transition duration-300 mb-2">
                     CyberInsights
                   </h2>
@@ -205,6 +214,7 @@ export default function Home() {
                     by 5B
                   </p>
                 </div>
+              </div>
                 <div>
                   <h2 className="text-2xl font-semibold mb-4 mt-12 hover:text-blue-500 transition-colors duration-300">
                     Table of Contents
@@ -287,8 +297,8 @@ export default function Home() {
               </div>
             </aside>
 
-            <article className="md:col-span-6">
-              <h1 className="text-6xl font-bold mb-3 hover:scale-105 transform transition duration-300">
+            <article className="md:col-span-7 ml-11">
+              <h1 className="text-6xl font-bold mb-3 hover:scale-105 transform transition duration-300 mr-6">
                 The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity
               </h1>
 
