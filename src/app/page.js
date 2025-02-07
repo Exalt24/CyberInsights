@@ -460,7 +460,7 @@ export default function Home() {
                   Remember these security principles because you never know when a cybersecurity breach or a malicious attack might come knocking. But don’t worry, you’ve got this!
                 </p>
                 <p className="mb-4 ">
-                  Speaking of "you," let's shift gears and dive deep into the <strong>human factors principle</strong>—because, let's face it, the biggest security threat could be YOU or just sitting right across from you. Let’s explore how humans play a key role in cybersecurity, for better or worse.
+                  Speaking of "you," let's shift gears and dive deep into the <strong>human factors principle</strong>—because, let's face it, the biggest security threat could be YOU or someone sitting right across from you. Let’s explore how humans play a key role in cybersecurity, for better or worse.
                 </p>
               </section>
 
@@ -716,7 +716,7 @@ export default function Home() {
                   </div>
                   <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
                     <ZoomableImage
-                      src="/images/daniel.jpg"
+                      src="/images/daniel.png"
                       alt="Daniel Cruz"
                       className="w-24 h-24 rounded-full mb-2"
                     />
