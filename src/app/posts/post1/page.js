@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from '../../components/Navbar';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState, memo } from 'react';
@@ -192,31 +193,15 @@ export default function Original() {
 
       <ReadingProgressBar />
       <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-
+      
+      <Navbar isDarkMode={isDarkMode}/>
       <div className={isDarkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"}>
-        <main id="top" className="min-h-screen py-7 px-4">
+        <main id="top" className="min-h-screen py-7 px-4 pt-0">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-5">
             <aside className="md:col-span-3 hidden md:block">
               <div className="sticky space-y-6" style={{ top: "20px" }}>
-              <div className="flex items-center text-justify">
-                <Image
-                  src="/logo.svg"
-                  alt="CyberInsights Logo"
-                  width={50}
-                  height={50}
-                  className="mr-2"
-                />
                 <div>
-                  <h2 className="text-4xl font-bold text-blue-400 drop-shadow-lg hover:scale-105 transform transition duration-300 mb-2">
-                    CyberInsights
-                  </h2>
-                  <p className="text-md text-blue-300 hover:scale-105 transform transition duration-300 ml-2">
-                    by 5B
-                  </p>
-                </div>
-              </div>
-                <div>
-                  <h2 className="text-2xl font-semibold mb-4 mt-12 hover:text-blue-500 transition-colors duration-300">
+                  <h2 className="text-2xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
                     Table of Contents
                   </h2>
                   <ul className="list space-y-2">
