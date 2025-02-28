@@ -195,7 +195,6 @@ export default function Original() {
       <Navbar isDarkMode={isDarkMode}/>
 
       <div className={isDarkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"}>
-      <Navbar isDarkMode={isDarkMode}/>
         <main id="top" className="min-h-screen py-7 px-4 pt-0">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 ml-5">
             <aside className="md:col-span-3 hidden md:block">
