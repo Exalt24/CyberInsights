@@ -14,8 +14,8 @@ export default function Home() {
       <div className="flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
 
-      {/* Post 1 */}
-      <Link href="/posts/post1" className="w-2/3">
+      {/* Post 2 */}
+      <Link href="/posts/post2" className="w-2/3">
         <div className="bg-white shadow-md rounded-lg p-6 flex gap-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
           <div className="w-1/3">
             <Image
@@ -37,8 +37,8 @@ export default function Home() {
         </div>
       </Link>
 
-      {/* Post 2 */}
-      <Link href="/posts/post2" className="w-2/3 mt-4">
+      {/* Post 1 */}
+      <Link href="/posts/post1" className="w-2/3 mt-4">
         <div className="bg-white shadow-md rounded-lg p-6 flex gap-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
           <div className="w-1/3">
             <Image
