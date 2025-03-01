@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-900">
       <div>
         <h1 className="text-4xl font-bold mb-6">Welcome to CyberInsights</h1>
-        <p className="text-lg mb-4">Exploring the human factor in cybersecurity.</p>
+        <p className="flex justify-center text-lg mb-4">Exploring the human factor in cybersecurity.</p>
       </div>
       
       <div className="flex flex-col items-center">
