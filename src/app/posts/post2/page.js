@@ -288,13 +288,25 @@ export default function Original() {
                   Introduction
                 </h2>
                 <p className="mb-4  ">
-                  Picture this: It’s a Monday morning, you still haven’t had your coffee, and you’re trying to log into your email—only to discover your password has mysteriously changed overnight. Was it a glitch, or have hackers been plotting in the shadows like movie villains in a neon-lit basement?
+                  Eli Tan suddenly woke up from a dream, startled that his machine problem, which was due soon, had transformed into a monster and chased the soul out of him. He had been thinking about it for weeks but he had barely made any progress. It was 3 AM, but Eli Tan stood up from his bed with sheer determination to face his demon—that is, the task of <em>exploiting a buffer overflow to force a program to exit using a stack smash attack</em>.
                 </p>
                 <p className="mb-4  ">
-                  In reality, many security breaches start with something far less dramatic: simple human error. Welcome to our fun-filled journey into computer security, where we’ll talk about security principles, specifically the <strong>human factors principle</strong>, real-world breaches, and the occasional jokes (yes, jokes!) to keep things light.
+                  <q><em>Buffer overflow? Stack smashing? Shellcode? </em></q> Eli Tan muttered to himself.
                 </p>
                 <p className="mb-4  ">
-                  Spoiler Alert! Even if you have the toughest firewall in the galaxy, it’s all for nothing if an unsuspecting user clicks on a shady link. Let’s dive in!
+                  He knew about these concepts in theory as this was introduced and discussed by his CMSC 134 course instructor, but never actually executed an exploit application like this before. He smirked, determined by the challenge. He sat on his study table, cracked his knuckles and neck, and got to work.
+                </p>
+                <p className="mb-4  ">
+                  He re-read the instructions. He understood that a C nonterminating program named <code>vuln.c</code> was given. This program accepts an unbounded number of non-null byte characters from standard input using the <code>gets()</code> method, a known unsafe function. After taking the input, the program entered an infinite loop, meaning it would never exit on its own.
+                </p>
+                <p className="mb-4  ">
+                  After days of overthinking and stressing out, Eli Tan finally realized the flaw. There was no input limit. Although, <code>char buffer[8]</code> indicated <code>8 bytes</code>, the usage of the <code>gets()</code> method got in the way. Eli Tan thought that if he entered more than <code>8 bytes</code>, he could overwrite other parts of the memory. Worst, even the function’s return address. 
+                </p>
+                <p className="mb-4  ">
+                  That was the <em>light bulb</em> 💡.
+                </p>
+                <p className="mb-4  ">
+                  <q><em>Alright, so I need to construct something so that I can take control of what happens after <code>vuln()</code> returns,</em></q> he finally figured it out.
                 </p>
               </section>
 
