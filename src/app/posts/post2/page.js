@@ -5,6 +5,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState, memo } from 'react';
 
+import "prismjs";
+import "prismjs/themes/prism-okaidia.css";
+import "prismjs/components/prism-c"; // Add C language support
+import "prismjs/components/prism-bash"; // Add Shell Session language support
+
 function ZoomableImage({ src, alt, className, width = 500, height = 500, zoomWidth = 800, zoomHeight = 800 }) {
   const [isZoomed, setIsZoomed] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -18,6 +23,10 @@ function ZoomableImage({ src, alt, className, width = 500, height = 500, zoomWid
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    Prism.highlightAll(); // Ensure Prism.js highlights after render
   }, []);
 
   return (
@@ -317,39 +326,64 @@ export default function Original() {
                   Compiling
                 </h2>
                 <p className="mb-4  ">
-                  Ever watch a spy movie where the hero dodges lasers, cracks a code in seconds, and casually waltzes off with top-secret files? That’s basically a blueprint for what we <em>don’t</em> want in the real world—at least when it comes to our own data. <strong>Computer security</strong> is the shield we put up to block unauthorized access to our digital lives.
+                  Eli Tan fired up his Ubuntu machine and made sure he had the right tools installed. He replicated the source code of <code>vuln.c</code> as provided in the instructions.
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  The Basics
-                </h3>
-                <p className="mb-4  ">
-                  At its core, computer security revolves around three big goals:
+                <p className="">
+                  He typed this command in his machine’s terminal.
                 </p>
-                <ol className="list-decimal ml-6 mb-4">
-                  <li className="mb-2  ">
-                    <strong>Confidentiality</strong>: Keeping secrets secret.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Integrity</strong>: Ensuring data can’t be tampered with.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Availability</strong>: Making sure systems work when you need them.
-                  </li>
-                </ol>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Why It Matters
-                </h3>
-                <ul className="list-disc ml-6">
-                  <li className="mb-2  ">
-                    <strong>Personal Privacy</strong>: You probably don’t want strangers sifting through your selfies or bank details.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Financial Protection</strong>: Hackers love a quick payday.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Business Security</strong>: One data breach could spell disaster and lots of awkward apology emails.
-                  </li>
-                </ul>
+                <pre>
+                  <code className="language-bash">
+                    {`➜  cmsc-134-mp1 nano vuln.c`}
+                  </code>
+                </pre>
+                <pre>
+                  <code className="language-c">
+{`#include <stdio.h>
+
+void vuln(){
+  char buffer[8];
+  gets(buffer);
+}
+
+int main(){
+  vuln();
+  while(1){
+  }
+}`}
+                  </code>
+                </pre>
+                
+                <p className="mt-4">
+                  After that, Eli Tan compiled the source code of <code>vuln.c</code> with the following incantation.
+                </p>
+                <pre>
+                  <code className="language-bash">
+                    {`➜  cmsc-134-mp1 gcc -m32 -fno-stack-protector -mpreferred-stack-boundary=2 -fno-pie -ggdb -z execstack -std=c99 vuln.c -o vuln`}
+                  </code>
+                </pre>
+                
+                <p className="mt-4">
+                  However, he received these warnings:
+                </p>
+                <pre>
+                  <code className="language-bash">
+{`vuln.c: In function ‘vuln’:
+vuln.c:5:5: warning: ‘gets’ is deprecated [-Wdeprecated-declarations]
+    5 |     gets(buffer);
+      |     ^~~~
+In file included from vuln.c:1:
+/usr/include/stdio.h:577:14: note: declared here
+  577 | extern char *gets (char *__s) __wur __attribute_deprecated__;
+      |              ^~~~
+/usr/bin/ld: /tmp/ccrgzjN1.o: in function ‘vuln’:
+/home/jadezahyen/School/cmsc-134-mp1/vuln.c:5: warning: the ‘gets’ function is dangerous and should not be used.`}
+                  </code>
+                </pre>
+                
+                <p className="mb-4 mt-4">
+                  Eli Tan was right! The <code>gets()</code> function was indeed dangerous to use.
+                </p>
+        
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -359,148 +393,202 @@ export default function Original() {
                   Finding Addresses
                 </h2>
 
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                  <ZoomableImage
-                    src="/images/3.png"
-                    alt="Defense-in-Depth cybersecurity model"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    A layered approach to cybersecurity: Defense-in-Depth model.
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.cybergasha.com/blog" className="hover:underline text-blue-400">https://www.cybergasha.com/blog</a>
-                  </p>
-                </div>
+                <p>
+                  The real work officially starts now. With the executable ready, he opened <code>gdb</code> to analyze the program's memory and find the addresses.
+                </p>
 
-                <p className="mb-4  ">
-                  Principles are like the <em>secret sauce</em> of decision-making—they help us make choices that align with our values and goals. And just like they guide us in life, they are also the guiding light of the cybersecurity world.
+                <pre>
+                  <code className="language-bash">
+{`➜  cmsc-134-mp1 gdb vuln                                                                                                      
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.2) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from vuln...
+(gdb)
+`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  In his terminal inside the <code>gdb</code>, he typed in the command <code>break 1</code> which sets the breakpoint at the <code>gets(buffer)</code> function, and ran the program.
                 </p>
-                <p className="mb-4  ">
-                  In this article, we will first provide an overview of the 11 security principles before proceeding to the in-depth discussion of the <strong>human factors principle</strong>. These principles act as the shield protecting systems, data, and users from digital villains—hackers, data breaches, and malicious threats.
+                <pre>
+                  <code className="language-bash">
+{`(gdb) break 1
+Breakpoint 1 at 0x11d7: file vuln.c, line 5.
+
+(gdb) run
+Starting program: /home/jadezahyen/School/cmsc-134-mp1/vuln 
+
+Breakpoint 1, vuln () at vuln.c:5
+5           gets(buffer);
+`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  Eli Tan then checked the buffer’s memory address which he found to be <code>0xffffcb58</code>.
                 </p>
-                <p className="mb-8  ">
-                  Ready to understand how these principles work their magic? Let's jump in and explore the cybersecurity essentials that keep the bad guys at bay!
+                <pre>
+                  <code className="language-bash">
+{`(gdb) print &buffer
+$1 = (char (*)[8]) 0xffffcb58
+`}
+                  </code>
+                </pre>     
+
+                <p className="mt-4">
+                  He also wanted to know the registers, so he typed in the command <code>info registers</code>.
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Threat Model
-                </h3>
-                <p className="mb-4  ">
-                  Threat modeling is about asking: <em>What do attackers want?</em> <em>What can they do?</em> and <em>Is it worth defending?</em> Knowing your enemy means you can choose defenses that make sense for your situation—whether you’re a global enterprise or a freelance artist.
+                <pre>
+                  <code className="language-bash">
+{`(gdb) info registers
+eax            0xf7fba088          -134504312
+ecx            0x2de7ea10          770173456
+edx            0xffffcb94          -13420
+ebx            0x0                 0
+esp            0xffffcb58          0xffffcb58
+ebp            0xffffcb60          0xffffcb60
+esi            0xf7fb8000          -134512640
+edi            0xf7fb8000          -134512640
+eip            0x565561d7          0x565561d7 <vuln+10>
+eflags         0x292               [ AF SF IF ]
+cs             0x23                35
+ss             0x2b                43
+ds             0x2b                43
+es             0x2b                43
+fs             0x0                 0
+gs             0x63                99
+`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  Furthermore, he wanted to see the stack frame info so he typed in another command of <code>info frame</code>.
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Human Factors
-                </h3>
-                <p className="mb-4  ">
-                  The main focus of this article and this is the big one—“Humans are the weakest link.” Even the best systems fail if humans fail because <em>to err is human</em>.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Security is Economics
-                </h3>
-                <p className="mb-4  ">
-                  There’s always a cost-benefit balance in security. No system is 100% secure without becoming 0% usable. Think about bike locks: they can all be broken, but the goal is to deter casual theft and make it <em>not worth the effort</em>.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Detect If You Can’t Prevent
-                </h3>
-                <p className="mb-4  ">
-                  You can’t stop every attack, but if you detect weird activity early on, you can respond before it’s too late. Think of this like a home alarm system—you may not stop the break-in, but you’ll know it happened.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Defense in Depth
-                </h3>
-                <p className="mb-4  ">
-                  Layer multiple defenses, so if one fails, others can still stand. It’s the onion approach: many layers, sometimes tears.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Least Privilege
-                </h3>
-                <p className="mb-4  ">
-                  Only grant the minimal access needed. If an account is compromised but has limited privileges, damage remains minimal.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Separation of Responsibility
-                </h3>
-                <p className="mb-4  ">
-                  No single person or system should have unlimited power. Requiring multiple parties to collaborate makes fraud or sabotage much harder.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Complete Mediation
-                </h3>
-                <p className="mb-4  ">
-                  Validate <strong>every</strong> access request rather than assuming trust after the first time. It’s like checking IDs at the door every day, not just once.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Shannon’s Maxim (Kerckhoffs’ Principle)
-                </h3>
-                <p className="mb-4  ">
-                  Assume attackers know how your system works. Security through obscurity (like hiding a house key under the mat) isn’t true security.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Fail-Safe Defaults
-                </h3>
-                <p className="mb-4  ">
-                  If something breaks, fail <em>securely</em> rather than leaving everything open.
-                </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Security from the Start
-                </h3>
-                <p className="mb-8 ">
-                  Building security in from the beginning is easier and cheaper than trying to retrofit it later—like adding locks during home construction instead of after you’ve moved in.
-                </p>
-                <p className="mb-4 ">
-                  Remember these security principles because you never know when a cybersecurity breach or a malicious attack might come knocking. But don’t worry, you’ve got this!
-                </p>
-                <p className="mb-4 ">
-                  Speaking of "you," let's shift gears and dive deep into the <strong>human factors principle</strong>—because, let's face it, the biggest security threat could be YOU or someone sitting right across from you. Let’s explore how humans play a key role in cybersecurity, for better or worse.
-                </p>
+                <pre>
+                  <code className="language-bash">
+{`(gdb) info frame
+Stack level 0, frame at 0xffffcb68:
+ eip = 0x565561d7 in vuln (vuln.c:5); saved eip = 0x565561f2
+ called by frame at 0xffffcb70
+ source language c.
+ Arglist at 0xffffcb54, args: 
+ Locals at 0xffffcb54, Previous frame's sp is 0xffffcb68
+ Saved registers:
+  ebp at 0xffffcb60, eip at 0xffffcb64
+`}
+                  </code>
+                </pre>               
+
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section id="obtaining-machine-code" aria-labelledby="obtaining-machine-code-heading" className="mb-10">
                 <h2 id="obtaining-machine-code-heading" className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  Human Factors as One of the Key Security Principles
+                  Obtaining Machine Code
                 </h2>
 
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/4.jpg"
-                      alt="Phishing scam disguised as an iPhone giveaway"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    A visual example of a phishing scam disguised as an iPhone giveaway.
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.pcrisk.com/removal-guides/24044-win-a-new-iphone-13-pop-up-scam" className="hover:underline text-blue-400">https://www.pcrisk.com/removal-guides/24044-win-a-new-iphone-13-pop-up-scam</a>
-                  </p>
-                </div>
-
                 <p className="mb-4  ">
-                  Even with top-notch firewalls, human behavior can undermine it all in a single click. Sir Eli’s takeaway? People are lazy, gullible, or simply unaware. All it takes is one “free iPhone giveaway” email to wreak havoc.
+                  He proceeded to obtain the machine code by writing the assembly in C.
                 </p>
-                <h3 className="text-xl font-semibold mb-2 hover:text-blue-500 transition-colors duration-300">
-                  Why Humans Are the Weakest Link
-                </h3>
-                <ul className="list-disc ml-6 mb-4">
-                  <li className="mb-2  ">
-                    <strong>Laziness:</strong> We prefer easy, memorable passwords or skip reading warnings.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Curiosity/Gullibility:</strong> Phishing emails exploit our desire for freebies or “urgent” info.
-                  </li>
-                  <li className="mb-2  ">
-                    <strong>Overconfidence:</strong> “I’ll never get hacked” is often famous last words.
-                  </li>
-                </ul>
-                <p className=" ">
-                  On the bright side, once we recognize our vulnerabilities, we can take steps to become the strongest defense—through training, careful habits, and a dash of healthy paranoia.
+                <pre>
+                  <code className="language-c">
+{`int main(){
+    __asm__("xor %eax, %eax;"
+            "inc %eax;"
+            "mov %ebx, %eax;"
+            "leave;"
+            "ret;"
+    );
+}`}
+                  </code>
+                </pre>                   
+
+                <p className="mt-4">
+                  After this, he compiled the program by using the following incantation.
                 </p>
+                <pre>
+                  <code className="language-bash">
+                    {`➜  cmsc-134-mp1 gcc -m32 -fno-stack-protector -fno-pie -std=c99 -masm=intel asm.c -o asm`}
+                  </code>
+                </pre> 
+
+                <p className="mt-4">
+                  Eli Tan then used the <code>objdump</code> tool to obtain the machine code.
+                </p>
+                <pre>
+                  <code className="language-bash">
+                    {`➜  cmsc-134-mp1 objdump -d asm > asmdump`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  He opened the <code>asmdump</code> file and scrolled through to find the <code>main</code> section as this was the essential part of writing the shellcode.
+                </p>
+                <pre>
+                  <code className="language-bash">
+{`➜  cmsc-134-mp1 objdump -d asm > asmdump...
+000011ad <main>:
+    11ad:	f3 0f 1e fb          	endbr32 
+    11b1:	55                   	push   %ebp
+    11b2:	89 e5                	mov    %esp,%ebp
+    11b4:	31 c0                	xor    %eax,%eax
+    11b6:	40                   	inc    %eax
+    11b7:	89 c3                	mov    %eax,%ebx
+    11b9:	c9                   	leave  
+    11ba:	c3                   	ret    
+    11bb:	b8 00 00 00 00       	mov    $0x0,%eax
+    11c0:	5d                   	pop    %ebp
+    11c1:	c3                   	ret    
+...
+`}
+                  </code>
+                </pre>
+
+                <p className="mt-4 mb-4">
+                  Eli Tan understood that the first three lines of the machine code were just a standard function setup. The <code>push %ebp</code> and <code>mov %esp, %ebp</code> instructions were part of setting up the function's stack frame.
+                </p>
+                <p>
+                  However, the real payload was further down.
+                </p>
+                <pre>
+                  <code className="language-bash">
+{`    11b4:	31 c0                	xor    %eax,%eax
+    11b6:	40                   	inc    %eax
+    11b7:	89 c3                	mov    %eax,%ebx
+    11b9:	c9                   	leave  
+    11ba:	c3                   	ret 
+`}
+                  </code>
+                </pre>
+
+                <p className="mt-4 mb-4">
+                  Eli Tan grinned. He is smelling the fragrance of success.
+                </p>
+                <p className="mb-4">
+                  <q><em>So this is what I need to inject into the program,</em></q> he thought.
+                </p> 
+                <p className="mb-4">
+                  The <code>xor %eax, %eax</code> sets <code>eax</code> to 0 followed by <code>inc %eax</code> which increments <code>eax</code> to 1. Then, <code>mov %eax, %ebx</code> moves <code>eax (1)</code> into <code>ebx</code> to ensure the exit code would be 1. Finally <code>leave</code> and <code>ret</code> cleaned up the stack and returned the execution.
+                </p> 
+                <p className="mb-4">
+                  Perfect. This was the clean exit strategy he needed.
+                </p>         
+
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -510,88 +598,50 @@ export default function Original() {
                   Writing down the Shellcode
                 </h2>
 
-                <p className="mb-6  ">
-                  Let’s take a fun trip down memory lane and revisit some <em>oops</em> moments in cybersecurity history. Prepare yourselves for some facepalm-worthy breaches where humans were definitely the weakest link in the chain.
+                <p className="mb-4  ">
+                  Eli Tan proceeded to write down the shellcode. For his exploit, he needed to create a payload file, egg, in this case, that will trigger the vulnerable program to execute the shellcode and exit with code 1.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  The Equifax Data Breach – A Big Oops in Credit Reporting
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example1.jpg"
-                      alt="The Equifax Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Equifax Data Breach – A small security lapse led to one of the biggest data breaches in history. </em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.csoonline.com/article/567833/equifax-data-breach-faq-what-happened-who-was-affected-what-was-the-impact.html" className="hover:underline text-blue-400">https://www.csoonline.com/article/567833/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  In 2017, Equifax, a major credit reporting agency, suffered one of the largest data breaches in history by failing to patch a critical Apache Struts vulnerability despite multiple warnings. Worse, an expired security certificate prevented their system from detecting the breach for months. Hackers accessed sensitive data of 145 million U.S. citizens and over 10 million people in the UK. Equifax was fined £500,000 in the UK for failing to protect consumer data.
+                <p>
+                  Based on his analysis, the shellcode must be arranged as follows:
                 </p>
+                <pre>
+                  <code className="language-bash">
+{`31 c0      # xor %eax, %eax  clear eax (sets eax = 0)
+40         # inc %eax        increments eax now becomes 1 (sets eax = 1)
+89 c3      # mov %ebx, %eax  set ebx = 1 (exit code)
+cd 80      # int 0x80        invoke system call: exit 1  
+`}
+                  </code>
+                </pre>
 
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  Strathmore College Data Breach – One Upload Away from a Nightmare
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example2.jpg"
-                      alt="The Strathmore College Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Strathmore College Data Breach – A simple upload mistake exposed students’ most private information. </em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.theguardian.com/australia-news/2018/aug/22/melbourne-student-health-records-posted-online-in-appalling-privacy-breach" className="hover:underline text-blue-400">https://www.theguardian.com/australia-news/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  In August 2018, an employee at Strathmore Secondary College accidentally uploaded over 300 students’ sensitive records to the school’s intranet, exposing medical conditions, medications, and learning difficulties. The files remained accessible for a day, allowing students and parents to view or download them. The incident highlighted the risks of mishandling sensitive data, prompting staff training and an investigation by the Australian Department of Education.
+                <p className="mt-4 mb-4">
+                  Instead of retaining <code>leave</code> and <code>ret</code>, Eli Tan changed it to <code>int 0x80</code> to invoke a system call to exit and prevent going into a segmentation fault.
                 </p>
-
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  Marine Corps Data Breach – One unencrypted email, 21,500 personal records at risk
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example3.jpg"
-                      alt="The Marine Corps Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Marine Corps Data Breach</em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.marinecorpstimes.com/news/your-marine-corps/2018/02/28/major-data-breach-at-marine-forces-reserve-impacts-thousands/" className="hover:underline text-blue-400">https://www.marinecorpstimes.com/news/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  The United States Marine Corps faced a serious data leak in early 2018 when the Defense Travel System (DTS) accidentally sent an unencrypted email with an attachment to the wrong distribution list. The email, intended for internal use, included bank account numbers, Social Security Numbers and emergency contact information of around 21,500 Marines, sailors, and civilians. Once the breach was discovered, the Marines attempted to recall the emails and announced plans to strengthen security measures for sensitive communications.
+                <p className="mb-4">
+                  Furthermore, Eli Tan figured that the <code>vuln()</code> function has an 8-byte buffer followed by a 4-byte saved <code>ebp</code>, giving a total of 12 bytes before the saved return address. Since the shellcode uses 7 bytes, he needed to add 5 <code>nop (0x90)</code> instructions to fill the remaining spaces.
                 </p>
+                <p className="mb-4">
+                  Since Eli Tan has overwritten the saved return address with the start address of the buffer which took up 4-bytes, he also needed to include this in the shellcode. The <code>gdb</code> session showed that the buffer begins at <code>0xffffcb58</code>. With that, in little-endian format, this address is represented as <code>\x58\xcb\xff\xff</code>.
+                </p>
+                <p>
+                  Joining everything, Eli Tan created this shellcode:
+                </p>
+                <pre>
+                  <code className="language-bash">
+                    {String.raw`\x31\xc0\x40\x89\xc3\xcd\x80\x90\x90\x90\x90\x90\x58\xcb\xff\xff`}
+                  </code>
+                </pre>
 
-                <p className="mb-4 ">
-                  <strong><em>So, what is the moral of the story?</em></strong>
+                <p className="mt-4 ">
+                  <q><em>Time to test it,</em></q> he said, sweating in bullets. He saved the shellcode to a file, in this case, <code>egg</code>.
                 </p>
-                <p className="mb-4 ">
-                  <em>To err is human, but to prevent a data breach is divine.</em> These real-world examples show how simple mistakes can lead to catastrophic consequences. By understanding the risks and implementing best practices, organizations or even us commonfolks can avoid becoming the next headline.
-                </p>
+                <pre>
+                  <code className="language-bash">
+                    {String.raw`➜  cmsc-134-mp1 echo -ne "\x31\xc0\x40\x89\xc3\xcd\x80\x90\x90\x90\x90\x90\x58\xcb\xff\xff" > egg`}
+                  </code>
+                </pre>
+
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -601,88 +651,29 @@ export default function Original() {
                   Running the program in gdb
                 </h2>
 
-                <p className="mb-6  ">
-                  Let’s take a fun trip down memory lane and revisit some <em>oops</em> moments in cybersecurity history. Prepare yourselves for some facepalm-worthy breaches where humans were definitely the weakest link in the chain.
+                <p>
+                  With his shellcode ready, Eli Tan opened <code>gdb</code> and injected it into the vulnerable program. He took a deep breath and typed in the command:
+                </p>
+                <pre>
+                  <code className="language-bash">
+                    {`(gdb) run < egg`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  For a split second, nothing happened. Then the terminal displayed a message.
+                </p>
+                <pre>
+                  <code className="language-bash">
+{`Starting program: /home/jadezahyen/School/cmsc-134-mp1/vuln < egg
+[Inferior 1 (process 39346) exited with code 01]`}
+                  </code>
+                </pre>
+
+                <p className="mt-4">
+                  Success! No infinite loop. No segmentation fault. Just a clean termination with exit code 1.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  The Equifax Data Breach – A Big Oops in Credit Reporting
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example1.jpg"
-                      alt="The Equifax Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Equifax Data Breach – A small security lapse led to one of the biggest data breaches in history. </em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.csoonline.com/article/567833/equifax-data-breach-faq-what-happened-who-was-affected-what-was-the-impact.html" className="hover:underline text-blue-400">https://www.csoonline.com/article/567833/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  In 2017, Equifax, a major credit reporting agency, suffered one of the largest data breaches in history by failing to patch a critical Apache Struts vulnerability despite multiple warnings. Worse, an expired security certificate prevented their system from detecting the breach for months. Hackers accessed sensitive data of 145 million U.S. citizens and over 10 million people in the UK. Equifax was fined £500,000 in the UK for failing to protect consumer data.
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  Strathmore College Data Breach – One Upload Away from a Nightmare
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example2.jpg"
-                      alt="The Strathmore College Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Strathmore College Data Breach – A simple upload mistake exposed students’ most private information. </em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.theguardian.com/australia-news/2018/aug/22/melbourne-student-health-records-posted-online-in-appalling-privacy-breach" className="hover:underline text-blue-400">https://www.theguardian.com/australia-news/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  In August 2018, an employee at Strathmore Secondary College accidentally uploaded over 300 students’ sensitive records to the school’s intranet, exposing medical conditions, medications, and learning difficulties. The files remained accessible for a day, allowing students and parents to view or download them. The incident highlighted the risks of mishandling sensitive data, prompting staff training and an investigation by the Australian Department of Education.
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300">
-                  Marine Corps Data Breach – One unencrypted email, 21,500 personal records at risk
-                </h3>
-
-                <div className="mb-6">
-                <div className={`w-full h-64 flex items-center justify-center rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                    <ZoomableImage
-                      src="/images/example3.jpg"
-                      alt="The Marine Corps Data Breach"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <p className="text-center text-sm text-gray-500 mt-2 hover:text-blue-500 transition-colors duration-300">
-                    <em>Marine Corps Data Breach</em>
-                  </p>
-                  <p className="text-center text-xs text-gray-400 mt-1">
-                    Source: <a href="https://www.marinecorpstimes.com/news/your-marine-corps/2018/02/28/major-data-breach-at-marine-forces-reserve-impacts-thousands/" className="hover:underline text-blue-400">https://www.marinecorpstimes.com/news/</a>
-                  </p>
-                </div>
-
-                <p className="mb-6  ">
-                  The United States Marine Corps faced a serious data leak in early 2018 when the Defense Travel System (DTS) accidentally sent an unencrypted email with an attachment to the wrong distribution list. The email, intended for internal use, included bank account numbers, Social Security Numbers and emergency contact information of around 21,500 Marines, sailors, and civilians. Once the breach was discovered, the Marines attempted to recall the emails and announced plans to strengthen security measures for sensitive communications.
-                </p>
-
-                <p className="mb-4 ">
-                  <strong><em>So, what is the moral of the story?</em></strong>
-                </p>
-                <p className="mb-4 ">
-                  <em>To err is human, but to prevent a data breach is divine.</em> These real-world examples show how simple mistakes can lead to catastrophic consequences. By understanding the risks and implementing best practices, organizations or even us commonfolks can avoid becoming the next headline.
-                </p>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
@@ -692,13 +683,19 @@ export default function Original() {
                   Conclusion
                 </h2>
                 <p className="mb-4  ">
-                  At the end of the day, technology can only do so much—people are the real weak link in cybersecurity. But with better education, smarter habits, and a little common sense, we can turn humans from security liabilities into security assets.
+                  Eli Tan exhaled very loudly with relief and a big grin on his face. Finally, finally, finally, he had done it! He had crafted a buffer overflow exploit that cleanly forced the program to exit instead of looping forever.
                 </p>
                 <p className="mb-4  ">
-                  And remember: If you ever receive an email saying you’ve won a free iPhone, just delete it. Unless, of course, you enjoy giving hackers VIP access to your personal data.
+                  Just a few days ago, he was stressing out about this machine problem. But now? He had put his learnings into practice.
                 </p>
                 <p className="mb-4  ">
-                  Stay safe, stay smart, and for the love of cybersecurity—stop using "password123"!
+                  It was almost 5 AM.
+                </p>
+                <p className="mb-4  ">
+                  <q><em>Time to prepare for a quick jog,</em></q> Eli Tan muttered while stretching.
+                </p>
+                <p className="mb-4  ">
+                  And off he went running while grinning so big because he had slain his demon—the machine problem of cybersecurity.
                 </p>
               </section>
 
