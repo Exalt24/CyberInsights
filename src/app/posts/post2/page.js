@@ -127,21 +127,6 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode }) {
   );
 }
 
-const Footer = memo(function Footer({ isDarkMode }) {
-  const bgClass = isDarkMode ? "bg-gray-800" : "bg-white";
-  const borderClass = isDarkMode ? "border-t border-gray-700" : "border-t border-gray-200";
-  const textClass = isDarkMode ? "text-gray-300" : "text-gray-600";
-
-  return (
-    <footer className={`${bgClass} ${borderClass} py-4`}>
-      <div className={`max-w-7xl mx-auto px-4 text-center ${textClass}`}>
-        <p>&copy; {new Date().getFullYear()} 5B's CyberInsights. All rights reserved.</p>
-        <p className="mt-2">We Love You Sir Eli!</p>
-      </div>
-    </footer>
-  );
-});
-
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
@@ -706,7 +691,7 @@ cd 80      # int 0x80        invoke system call: exit 1
                   id="about-authors-heading"
                   className="text-2xl font-semibold mb-8 text-center hover:text-blue-500 transition-colors duration-300"
                 >
-                  Meet the Authors
+                The Authors
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                   <div className={`flex flex-col items-center p-4 rounded-md ${isDarkMode ? 'bg-gray-700 hover:bg-blue-900' : 'bg-gray-200 hover:bg-blue-400'} transition-colors duration-300`}>
@@ -771,9 +756,19 @@ cd 80      # int 0x80        invoke system call: exit 1
             </aside>
           </div>
         </main>
+
+        <footer className={`${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-700"} py-6 px-10 text-center`}>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} CyberInsights. All rights reserved.
+          </p>
+          <p className="text-sm mt-2">
+            Made with ❤️ by the CyberInsights Team.
+          </p>
+        </footer>
+
       </div>
 
-      <Footer isDarkMode={isDarkMode} />
+      
       <FloatingBackToTop />
     </>
   );
