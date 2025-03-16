@@ -326,31 +326,32 @@ export default function MP2() {
                 </h2>
                 <p className="mb-4">
                   Fresh off his triumph in taming an unruly buffer overflow, Eli
-                  Tan now faces a new frontier—one where messages must not only
-                  be kept secret but also be verifiably authentic. With the
-                  echoes of his past victory still resonating, he prepares to
-                  delve into the realm of public-key cryptography.
+                  Tan now finds himself at the threshold of a new challenge—one
+                  where he must secure messages using public-key cryptography.
+                  Although he often grumbled that these assignments were just
+                  routine exercises imposed by the curriculum, deep down he knew
+                  that mastering these techniques was vital.
                 </p>
                 <p className="mb-4">
-                  This time, his challenge is to transform a short,
-                  140-character message into an impenetrable cipher using
-                  RSA-OAEP for encryption, and then secure its authenticity with
-                  RSA-PSS digital signatures. The task is clear: protect each
-                  message so that only the intended recipient can read it, and
-                  verify that it truly comes from its sender.
+                  His task is to transform a short, 140-character message into
+                  an impenetrable cipher by leveraging RSA-OAEP for encryption
+                  and RSA-PSS for digital signatures. This approach not only
+                  guarantees confidentiality but also ensures that each message
+                  is verifiably authentic.
                 </p>
                 <p className="mb-4">
-                  To achieve this, Eli Tan generates two distinct RSA key
-                  pairs—one for encryption and another for signing. By reading
-                  the message from a file, encrypting it, and then signing the
-                  resulting ciphertext, he builds an elegant "encrypt-then-sign"
-                  system that safeguards both confidentiality and integrity.
+                  To accomplish this, Eli Tan generates two distinct RSA key
+                  pairs—one dedicated to encryption and the other to signing. By
+                  reading the message from a file, encrypting it, and then
+                  signing the resulting ciphertext, he constructs an elegant
+                  encrypt-then-sign system that marries security with integrity.
                 </p>
                 <p className="mb-4">
-                  With his tools at the ready and his determination unwavering,
-                  Eli Tan embarks on this journey into secure communication,
-                  poised to conquer yet another challenge in the ever-evolving
-                  landscape of cybersecurity.
+                  While he might secretly wish he could break free from these
+                  rigid requirements and innovate on the fly, he recognizes that
+                  these structured steps sharpen his technical acumen and
+                  prepare him for the complex challenges of real-world
+                  cybersecurity.
                 </p>
               </section>
 
@@ -377,8 +378,13 @@ export default function MP2() {
                 <p className="mb-4">
                   He leverages Python’s{" "}
                   <code className="language-python">cryptography</code> library
-                  to handle the heavy lifting. Below is an excerpt from his code
-                  that demonstrates how he generates the key pairs:
+                  to handle the heavy lifting. Although generating keys might
+                  seem like a rote task, Eli knows that this discipline lays a
+                  solid foundation for all subsequent cryptographic operations.
+                </p>
+                <p className="mb-4">
+                  Below is an excerpt from his code that demonstrates how he
+                  generates the key pairs:
                 </p>
                 <pre>
                   <code className="language-python">
@@ -401,9 +407,9 @@ def generate_signing_keys():
                 </pre>
                 <p className="mb-4">
                   Once generated, Eli Tan saves each key in PEM format using a
-                  helper function. This not only facilitates easier storage and
-                  retrieval but also prepares the keys for subsequent
-                  cryptographic operations:
+                  helper function. This method not only facilitates easier
+                  storage and retrieval but also ensures that the keys are ready
+                  for the encryption and signing processes that follow:
                 </p>
                 <pre>
                   <code className="language-python">
@@ -430,15 +436,15 @@ def save_key_to_file(key, filename, is_private=False):
                   <code>enc_private_key.pem</code> and{" "}
                   <code>enc_public_key.pem</code>, while the signing keys are
                   saved as <code>sign_private_key.pem</code> and{" "}
-                  <code>sign_public_key.pem</code>. This modular and file-based
-                  approach streamlines the management of cryptographic material,
-                  paving the way for the encryption/signing and
-                  verification/decryption stages that follow.
+                  <code>sign_public_key.pem</code>. Although these steps may
+                  appear mundane, Eli appreciates that such rigorous adherence
+                  to best practices is indispensable in the realm of
+                  cybersecurity.
                 </p>
                 <p>
                   With the keys securely generated and stored, Eli Tan is now
-                  poised to encrypt his message and ensure its authenticity
-                  through a robust encrypt-then-sign workflow.
+                  poised to advance to the encryption and signing stages,
+                  confident that his cryptographic foundation is rock-solid.
                 </p>
               </section>
 
@@ -623,33 +629,37 @@ Decrypted message: We love CMSC 134 and Sir Eli`}
                 <p className="mb-4">
                   Just a few days ago, the thought of juggling separate key
                   pairs, managing file-based inputs and outputs, and ensuring
-                  flawless verification had kept him up at night. But now, with
-                  the keys saved as <code>enc_private_key.pem</code>,{" "}
-                  <code>enc_public_key.pem</code>,{" "}
-                  <code>sign_private_key.pem</code>, and{" "}
-                  <code>sign_public_key.pem</code>, and the ciphertext and
-                  signature securely stored, his message was impeccably
-                  protected.
+                  flawless verification had kept him up at night. Although he
+                  sometimes felt that these strict guidelines were more about
+                  mere compliance than innovation, deep down he knew that this
+                  structured approach sharpened his technical acumen and
+                  disciplined his methods.
                 </p>
                 <p className="mb-4">
-                  When the terminal confirmed that the decrypted message read{" "}
-                  <code>"We love CMSC 134 and Sir Eli"</code>, a surge of
-                  triumph swept over him. The seamless integration of encryption
-                  and signing had worked perfectly.
+                  When the terminal output confirmed that the decrypted message
+                  read <code>"We love CMSC 134 and Sir Eli"</code>, a surge of
+                  triumph swept over him. The seamless integration of
+                  encryption, signing, and verification demonstrated that his
+                  secure communication system was both reliable and effective.
                 </p>
                 <p className="mb-4">
                   Glancing at the clock, Eli Tan realized it was nearly 10:30
                   AM—he was already late for his{" "}
-                  <code className="language-python">CMSC 134</code> class! With
-                  a final satisfied nod at his accomplishment, he quickly
-                  gathered his things, ready to head out, proud to have overcome
-                  yet another formidable cybersecurity challenge.
+                  <code className="language-python">CMSC 134</code> class!
+                  Despite his occasional frustrations with rigid assignment
+                  requirements, he appreciated that such discipline was
+                  essential for tackling real-world cybersecurity challenges.
+                </p>
+                <p>
+                  With a final satisfied nod at his accomplishment, he quickly
+                  gathered his things, ready to head out—late for class, yet
+                  confident in his mastery of another formidable cybersecurity
+                  challenge.
                 </p>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
-              {/* About Authors (Optional) */}
               <section
                 id="about-authors"
                 aria-labelledby="about-authors-heading"
