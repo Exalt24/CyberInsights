@@ -7,8 +7,8 @@ import { useEffect, useState, memo } from 'react';
 
 import "prismjs";
 import "prismjs/themes/prism-okaidia.css";
-import "prismjs/components/prism-c"; // Add C language support
-import "prismjs/components/prism-bash"; // Add Shell Session language support
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-bash";
 
 function ZoomableImage({ src, alt, className, width = 500, height = 500, zoomWidth = 800, zoomHeight = 800 }) {
   const [isZoomed, setIsZoomed] = useState(false);
@@ -26,7 +26,7 @@ function ZoomableImage({ src, alt, className, width = 500, height = 500, zoomWid
   }, []);
 
   useEffect(() => {
-    Prism.highlightAll(); // Ensure Prism.js highlights after render
+    Prism.highlightAll();
   }, []);
 
   return (

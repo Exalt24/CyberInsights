@@ -144,8 +144,19 @@ export default function Home() {
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 py-10">
         <BlogCard
-          href="/posts/post2"
+          href="/posts/post3"
           isFeatured={true}
+          imageSrc="/images/posts/post3.jpg"
+          altText="Blog Image"
+          date="March 17, 2025"
+          title="Machine Problem 2: RSA Encrypt-then-Sign"
+          description="Dive into public-key cryptography with RSA-OAEP encryption and RSA-PSS signing. Learn how Eli Tan implements an encrypt-then-sign scheme for short messages."
+          isDarkMode={isDarkMode}
+        />
+
+        <BlogCard
+          href="/posts/post2"
+          isFeatured={false}
           imageSrc="/images/posts/post2.png"
           altText="Blog Image"
           date="February 28, 2025"
@@ -162,7 +173,7 @@ export default function Home() {
           title="The Weakest Link or the Strongest Shield? How Humans Shape Cybersecurity"
           description="Discover how human behavior can be both the greatest vulnerability and the strongest defense in cybersecurity."
           isDarkMode={isDarkMode}
-        />
+        />        
       </section>
 
       <section
