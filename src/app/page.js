@@ -144,8 +144,18 @@ export default function Home() {
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 py-10">
         <BlogCard
-          href="/posts/post3"
+          href="/posts/post4"
           isFeatured={true}
+          imageSrc="/images/posts/post4.jpg"
+          altText="Blog Image"
+          date="April 27, 2025"
+          title="Machine Problem 3: Fixing Web App Vulnerabilities"
+          description="Uncover common web vulnerabilities with Eli Tan as he patches a simple Flask app against SQL injection, CSRF attacks, and XSS exploits."
+          isDarkMode={isDarkMode}
+        />
+
+        <BlogCard
+          href="/posts/post3"
           imageSrc="/images/posts/post3.jpg"
           altText="Blog Image"
           date="March 17, 2025"
