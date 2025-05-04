@@ -322,7 +322,7 @@ export default function MP3() {
                   id="introduction-heading"
                   className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Machine Problem 3 Writeup: Fixing Web App Vulnerabilities
+                  Introduction
                 </h2>
                 <p className="mb-4">
                   It was a cloudy Saturday afternoon when Eli Tan decided
