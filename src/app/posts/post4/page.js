@@ -150,7 +150,7 @@ const scrollToSection = (id) => {
   }
 };
 
-export default function MP2() {
+export default function MP3() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
@@ -159,9 +159,9 @@ export default function MP2() {
   useEffect(() => {
     const sectionIds = [
       "introduction",
-      "key-generation",
-      "encryption-and-signing",
-      "verification-and-decryption",
+      "sql-injection",
+      "csrf-protection",
+      "xss-protection",
       "conclusion",
     ];
     const observer = new IntersectionObserver(
@@ -191,11 +191,11 @@ export default function MP2() {
   return (
     <>
       <Head>
-        <title>Machine Problem 2: RSA Encrypt-then-Sign</title>
+        <title>Machine Problem 3: Fixing Web App Vulnerabilities</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="A writeup demonstrating RSA-OAEP encryption and RSA-PSS signing (encrypt-then-sign) for short messages."
+          content="A writeup for Machine Problem 3"
         />
       </Head>
 
@@ -236,50 +236,50 @@ export default function MP2() {
                     </li>
                     <li>
                       <a
-                        href="#key-generation"
+                        href="#sql-injection"
                         onClick={(e) => {
                           e.preventDefault();
-                          scrollToSection("key-generation");
+                          scrollToSection("sql-injection");
                         }}
                         className={`transition-colors duration-200 hover:text-blue-600 ${
-                          activeSection === "key-generation"
+                          activeSection === "sql-injection"
                             ? "text-blue-600 font-bold"
                             : ""
                         }`}
                       >
-                        Key Generation
+                        SQL Injection
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#encryption-and-signing"
+                        href="#csrf-protection"
                         onClick={(e) => {
                           e.preventDefault();
-                          scrollToSection("encryption-and-signing");
+                          scrollToSection("csrf-protection");
                         }}
                         className={`transition-colors duration-200 hover:text-blue-600 ${
-                          activeSection === "encryption-and-signing"
+                          activeSection === "csrf-protection"
                             ? "text-blue-600 font-bold"
                             : ""
                         }`}
                       >
-                        Encryption &amp; Signing
+                        CSRF Protection
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#verification-and-decryption"
+                        href="#xss-protection"
                         onClick={(e) => {
                           e.preventDefault();
-                          scrollToSection("verification-and-decryption");
+                          scrollToSection("xss-protection");
                         }}
                         className={`transition-colors duration-200 hover:text-blue-600 ${
-                          activeSection === "verification-and-decryption"
+                          activeSection === "xss-protection"
                             ? "text-blue-600 font-bold"
                             : ""
                         }`}
                       >
-                        Verification &amp; Decryption
+                        Cross-Site Scripting (XSS)
                       </a>
                     </li>
                     <li>
@@ -306,11 +306,11 @@ export default function MP2() {
             {/* Main Content */}
             <article className="md:col-span-7 ml-11">
               <h1 className="text-6xl font-bold mb-3 hover:scale-105 transform transition duration-300 mr-6">
-                Machine Problem 2: RSA Encrypt-then-Sign
+                Machine Problem 3: Fixing Web App Vulnerabilities
               </h1>
 
               <div className="text-justify mb-8">
-                <p className="text-sm text-gray-500">March 17, 2025</p>
+                <p className="text-sm text-gray-500">April 27, 2025</p>
               </div>
 
               <section
@@ -322,287 +322,218 @@ export default function MP2() {
                   id="introduction-heading"
                   className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Introduction
+                  Machine Problem 3 Writeup: Fixing Web App Vulnerabilities
                 </h2>
                 <p className="mb-4">
-                  Fresh off his triumph in taming an unruly buffer overflow, Eli
-                  Tan now finds himself at the threshold of a new challenge—one
-                  where he must secure messages using public-key cryptography.
-                  Although he often grumbled that these assignments were just
-                  routine exercises imposed by the curriculum, deep down he knew
-                  that mastering these techniques was vital.
+                  It was a cloudy Saturday afternoon when Eli Tan decided
+                  to finally sit down and tackle Machine Problem 3. He had
+                  spent the last few weeks hearing whispers about it from his
+                  classmates—whispers of SQL injections, CSRF vulnerabilities,
+                  and XSS nightmares.
                 </p>
                 <p className="mb-4">
-                  His task is to transform a short, 140-character message into
-                  an impenetrable cipher by leveraging RSA-OAEP for encryption
-                  and RSA-PSS for digital signatures. This approach not only
-                  guarantees confidentiality but also ensures that each message
-                  is verifiably authentic.
+                  Eli Tan, undeterred, brewed a strong cup of coffee, opened
+                  his laptop, and pulled up the provided zip file. A simple
+                  Flask web application stood before him: login, logout, and
+                  posting features—all seemingly harmless. But deep down, he
+                  knew that lurking beneath the surface were fatal security
+                  flaws waiting to be uncovered.
                 </p>
                 <p className="mb-4">
-                  To accomplish this, Eli Tan generates two distinct RSA key
-                  pairs—one dedicated to encryption and the other to signing. By
-                  reading the message from a file, encrypting it, and then
-                  signing the resulting ciphertext, he constructs an elegant
-                  encrypt-then-sign system that marries security with integrity.
-                </p>
-                <p className="mb-4">
-                  While he might secretly wish he could break free from these
-                  rigid requirements and innovate on the fly, he recognizes that
-                  these structured steps sharpen his technical acumen and
-                  prepare him for the complex challenges of real-world
-                  cybersecurity.
+                  Rolling up his sleeves, Eli Tan cracked his knuckles and
+                  muttered to himself, <q><em>Let's hunt some vulnerabilities.</em></q>
                 </p>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section
-                id="key-generation"
-                aria-labelledby="key-generation-heading"
+                id="sql-injection"
+                aria-labelledby="sql-injection-heading"
                 className="mb-10"
               >
                 <h2
-                  id="key-generation-heading"
+                  id="sql-injection-heading"
                   className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Key Generation
+                  SQL Injection
                 </h2>
                 <p className="mb-4">
-                  To begin securing his messages, Eli Tan first generates two
-                  distinct RSA key pairs—one for encryption using RSA-OAEP and
-                  another for signing using RSA-PSS. This separation is crucial
-                  as it ensures that the processes of encryption and
-                  authentication remain isolated, bolstering overall security.
-                </p>
-                <p className="mb-4">
-                  He leverages Python’s{" "}
-                  <code className="language-python">cryptography</code> library
-                  to handle the heavy lifting. Although generating keys might
-                  seem like a rote task, Eli knows that this discipline lays a
-                  solid foundation for all subsequent cryptographic operations.
-                </p>
-                <p className="mb-4">
-                  Below is an excerpt from his code that demonstrates how he
-                  generates the key pairs:
+                  Upon examining the <code>app.py</code>, Eli Tan immediately
+                  noticed the red flags—user inputs were being directly embedded
+                  into SQL queries without any sanitization.
+                  In the <code>/login</code> route, the username and password
+                  fields were concatenated into a raw query:
                 </p>
                 <pre>
-                  <code className="language-python">
-                    {`# Generate RSA key pair for encryption (RSA-OAEP)
-def generate_encryption_keys():
-    encryption_private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=2048,
-    )
-    return encryption_private_key, encryption_private_key.public_key()
+                  <code className="language-sql">
+                    {`res = cur.execute("SELECT id from users WHERE username = '"
++ request.form["username"] + "' AND password = '"
++ request.form["password"] + "'")`}
+                  </code>
+                </pre>
 
-# Generate RSA key pair for signing (RSA-PSS)
-def generate_signing_keys():
-    signing_private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=2048,
-    )
-    return signing_private_key, signing_private_key.public_key()`}
-                  </code>
-                </pre>
+                <h3 className="text-2xl font-semibold mt-6 mb-4">A. Login Bypass Test</h3>
                 <p className="mb-4">
-                  Once generated, Eli Tan saves each key in PEM format using a
-                  helper function. This method not only facilitates easier
-                  storage and retrieval but also ensures that the keys are ready
-                  for the encryption and signing processes that follow:
+                  Eli Tan started the server and fired up an incognito browser window.
+                  On the <code>/login</code> page, he entered:
                 </p>
                 <pre>
+                  <code className="language-text">
+                    {`Username: ' OR '1'='1
+Password: (any random password)`}
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  He hit "Login" and, as expected, <strong>gained access without valid credentials</strong>. Classic SQL Injection.
+                </p>
+                <p className="mb-4"><strong>Before Fix:</strong> Vulnerable to login bypass.</p>
+
+                <h3 className="text-2xl font-semibold mt-6 mb-4">B. Malicious Payload in /posts</h3>
+                <p className="mb-4">
+                  After logging in normally, Eli Tan posted the message:
+                </p>
+                <pre>
+                  <code className="language-text">
+                    '; DROP TABLE users; --
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  Submitting the form caused the application to crash with an
+                  <code>Internal Server Error</code>, a clear indication that
+                  the malicious SQL payload had broken the query execution.
+                </p>
+                <p className="mb-4"><strong>Before Fix:</strong> Vulnerable to SQL corruption and denial-of-service.</p>
+
+                <h3 className="text-2xl font-semibold mt-6 mb-4">C. Fixes Done</h3>
+                <p className="mb-4">
+                  To patch this vulnerability, Eli Tan <strong>replaced all direct SQL concatenations with parameterized queries</strong> using <code>?</code> placeholders:
+                </p>
+                <p className="mt-4"><strong>Before:</strong> </p>
+                <pre>
                   <code className="language-python">
-                    {`# Save key (private or public) to a file in PEM format.
-def save_key_to_file(key, filename, is_private=False):
-    if is_private:
-        pem = key.private_bytes(
-            encoding=serialization.Encoding.PEM,
-            format=serialization.PrivateFormat.PKCS8,
-            encryption_algorithm=serialization.NoEncryption()
-        )
-    else:
-        pem = key.public_bytes(
-            encoding=serialization.Encoding.PEM,
-            format=serialization.PublicFormat.SubjectPublicKeyInfo
-        )
-    with open(filename, "wb") as f:
-        f.write(pem)
-    print(f"Saved key to {filename}")`}
+                    {`cur.execute("SELECT id from users WHERE username = '"
++ username + "' AND password = '" + password + "'")`}
+                  </code>
+                </pre>
+                <p className="mt-4"><strong>After:</strong> </p>
+                <pre>
+                  <code className="language-python">
+                    {`cur.execute("SELECT id FROM users WHERE username = ?
+AND password = ?", (username, password))`}
                   </code>
                 </pre>
                 <p className="mb-4">
-                  The encryption keys are stored as{" "}
-                  <code>enc_private_key.pem</code> and{" "}
-                  <code>enc_public_key.pem</code>, while the signing keys are
-                  saved as <code>sign_private_key.pem</code> and{" "}
-                  <code>sign_public_key.pem</code>. Although these steps may
-                  appear mundane, Eli appreciates that such rigorous adherence
-                  to best practices is indispensable in the realm of
-                  cybersecurity.
-                </p>
-                <p>
-                  With the keys securely generated and stored, Eli Tan is now
-                  poised to advance to the encryption and signing stages,
-                  confident that his cryptographic foundation is rock-solid.
+                  ✅ Now, the database safely handles user inputs as parameters, neutralizing SQL Injection attempts.
                 </p>
               </section>
 
               <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
 
               <section
-                id="encryption-and-signing"
-                aria-labelledby="encryption-and-signing-heading"
+                id="csrf-protection"
+                aria-labelledby="csrf-protection-heading"
                 className="mb-10"
               >
                 <h2
-                  id="encryption-and-signing-heading"
+                  id="csrf-protection-heading"
                   className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Encryption &amp; Signing
+                  CSRF Protection
                 </h2>
                 <p className="mb-4">
-                  With the keys securely generated, Eli Tan turns his attention
-                  to protecting his message. He begins by reading a short ASCII
-                  message (up to 140 characters) from a file. This message is
-                  then encrypted using RSA-OAEP, ensuring that only someone with
-                  the correct decryption key can access its contents.
+                  Moving on, Eli Tan noticed that none of the POST forms (<code>/login</code>, <code>/posts</code>) had CSRF protection. Anyone could forge a request from another site!
                 </p>
                 <p className="mb-4">
-                  Immediately after encryption, he applies a digital signature
-                  to the ciphertext using RSA-PSS. This signature guarantees
-                  that the encrypted message is authentic and has not been
-                  tampered with. In essence, the process—encrypting first and
-                  then signing—ensures both confidentiality and integrity.
-                </p>
-                <p className="mb-4">
-                  Below is an excerpt from his Python code that demonstrates how
-                  the encryption and signing are performed:
-                </p>
-                <pre>
-                  <code className="language-python">
-                    {`def encrypt_then_sign(message, encryption_public_key, signing_private_key):
-    # Encrypt the message using RSA-OAEP
-    ciphertext = encryption_public_key.encrypt(
-        message.encode("ascii"),
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-    # Sign the ciphertext using RSA-PSS
-    signature = signing_private_key.sign(
-        ciphertext,
-        padding.PSS(
-            mgf=padding.MGF1(hashes.SHA256()),
-            salt_length=padding.PSS.MAX_LENGTH
-        ),
-        hashes.SHA256()
-    )
-    return ciphertext, signature`}
-                  </code>
-                </pre>
-                <p className="mb-4">
-                  After generating the ciphertext and signature, Eli Tan
-                  Base64-encodes them and saves the result in{" "}
-                  <code>ciphertext_and_signature.txt</code>, ensuring that both
-                  the encrypted message and its signature are safely recorded.
-                </p>
-                <p>
-                  This method, known as the encrypt-then-sign scheme, solidifies
-                  the trust in the communication process by verifying that any
-                  alteration to the ciphertext would invalidate the signature.
-                </p>
-              </section>
-
-              <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
-
-              <section
-                id="verification-and-decryption"
-                aria-labelledby="verification-and-decryption-heading"
-                className="mb-10"
-              >
-                <h2
-                  id="verification-and-decryption-heading"
-                  className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
-                >
-                  Verification &amp; Decryption
-                </h2>
-                <p className="mb-4">
-                  With the ciphertext and its accompanying signature safely
-                  stored, the next critical phase is to verify and decrypt the
-                  message. Eli Tan employs a sequential process: he first
-                  validates the digital signature using the signing public key,
-                  ensuring that the ciphertext has not been tampered with. Only
-                  then does he proceed to decrypt the ciphertext using the
-                  private encryption key.
-                </p>
-                <p className="mb-4">
-                  This dual-stage process guarantees both authenticity and
-                  confidentiality. If the signature fails to verify, the
-                  decryption process is halted immediately, preventing any
-                  corrupted or malicious data from being processed.
-                </p>
-                <p className="mb-4">
-                  The Python code below outlines the verification and decryption
-                  functions:
-                </p>
-                <pre>
-                  <code className="language-python">
-                    {`def verify_then_decrypt(ciphertext, signature, encryption_private_key, signing_public_key):
-    try:
-        # Verify the signature using RSA-PSS
-        signing_public_key.verify(
-            signature,
-            ciphertext,
-            padding.PSS(
-                mgf=padding.MGF1(hashes.SHA256()),
-                salt_length=padding.PSS.MAX_LENGTH
-            ),
-            hashes.SHA256()
-        )
-        # If verification succeeds, decrypt the ciphertext using RSA-OAEP
-        decrypted_message = encryption_private_key.decrypt(
-            ciphertext,
-            padding.OAEP(
-                mgf=padding.MGF1(algorithm=hashes.SHA256()),
-                algorithm=hashes.SHA256(),
-                label=None
-            )
-        )
-        return decrypted_message.decode("ascii")
-    except Exception as e:
-        print("Error during verification or decryption:", e)
-        return None`}
-                  </code>
-                </pre>
-                <p className="mb-4">
-                  After integrating this functionality into his program, Eli Tan
-                  ran the script. The terminal output confirmed that the keys
-                  were saved, the ciphertext and signature were generated,
-                  and—most importantly—the original message was successfully
-                  recovered. Here is a sample output from his session:
+                  To confirm, he did a quick <strong>cURL</strong>test:
                 </p>
                 <pre>
                   <code className="language-bash">
-                    {`PS C:\Projects\CMSC134WriteUps\MP2> python rsa_encrypt_decrypt.py
-Saved key to enc_private_key.pem
-Saved key to enc_public_key.pem
-Saved key to sign_private_key.pem
-Saved key to sign_public_key.pem
-Saved ciphertext and signature to ciphertext_and_signature.txt
-Saved decrypted message to decrypted.txt
-Decrypted message: We love CMSC 134 and Sir Eli`}
+                    {`curl -v -b "session_token=YOUR_TOKEN_HERE" -d "message=hello" http://localhost:5000/posts`}
                   </code>
                 </pre>
-                <p>
-                  This output not only validates the correctness of the
-                  verification and decryption process but also demonstrates the
-                  overall reliability of the encrypt-then-sign scheme. Through
-                  this method, Eli Tan ensures that any recipient of the message
-                  can be confident in both its integrity and its
-                  confidentiality.
+                <p className="mt-4">
+                  Without a CSRF token, the post was successfully created — <strong>definitely a problem.</strong>
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-6 mb-4">A. Fixes Done</h3>
+                <p className="mb-4">
+                  Eli Tan implemented a basic CSRF protection mechanism manually:
+                </p>
+                <pre>
+                  <code className="language-python">
+                    {`# Session-based CSRF Token:
+app.secret_key = secrets.token_hex(16)
+
+@app.before_request
+def ensure_csrf_token():
+    if 'csrf_token' not in session:
+        session['csrf_token'] = secrets.token_hex(16)
+
+# Adding CSRF token to Forms:
+<input type="hidden" name="csrf_token" value="{{ session['csrf_token'] }}">
+
+# Validating CSRF token on POST requests:
+if request.form.get("csrf_token") != session.get("csrf_token"):
+    abort(400)`}
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  ✅ With this, any forged request missing a valid CSRF token would get a 400 Bad Request.
+                </p>
+              </section>
+
+              <hr className="my-8 border-t border-gray-300 dark:border-gray-600" />
+
+              <section
+                id="xss-protection"
+                aria-labelledby="xss-protection-heading"
+                className="mb-10"
+              >
+                <h2
+                  id="xss-protection-heading"
+                  className="text-3xl font-semibold mb-4 hover:text-blue-500 transition-colors duration-300"
+                >
+                  Cross-Site Scripting (XSS)
+                </h2>
+                <p className="mb-4">
+                  Finally, Eli Tan turned his attention to the HTML templates. In <code>home.html</code>, he found this disturbing line:
+                </p>
+                <pre>
+                  <code className="language-html">
+                    {`<li>{{ post[0] | safe }}</li>`}
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  The <code>| safe</code> filter disabled Jinja2's automatic escaping, allowing raw HTML (and JavaScript) to be executed. To confirm, he posted:
+                </p>
+                <pre>
+                  <code className="language-html">
+                    {`<script>alert("XSS!")</script>`}
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  And sure enough — <strong>a popup appeared</strong>.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-6 mb-4">A. Fixes Done</h3>
+                <p className="mb-4">
+                  Eli Tan <strong>removed the <code>| safe</code> filter:</strong>
+                </p>
+                <p className="mt-4"><strong>Before:</strong> </p>
+                <pre>
+                  <code className="language-html">
+                    {`<li>{{ post[0] | safe }}</li>`}
+                  </code>
+                </pre>
+                <p className="mt-4"><strong>After:</strong> </p>
+                <pre>
+                  <code className="language-html">
+                    {`<li>{{ post[0] }}</li>`}
+                  </code>
+                </pre>
+                <p className="mt-4">
+                  ✅ Now, user input would be escaped automatically by Jinja2, and <code>&lt;script&gt;</code> tags would be rendered harmlessly as text.
                 </p>
               </section>
 
@@ -620,41 +551,19 @@ Decrypted message: We love CMSC 134 and Sir Eli`}
                   Conclusion
                 </h2>
                 <p className="mb-4">
-                  Eli Tan exhaled deeply with a wide grin on his face. At last,
-                  he had successfully implemented a robust RSA encrypt-then-sign
-                  system that not only secured his short messages with RSA-OAEP
-                  encryption but also guaranteed their authenticity through
-                  RSA-PSS digital signatures.
+                  After hours of debugging and patching, Eli Tan leaned back in his chair,
+                  proud of what he had accomplished. He had slain the three-headed beast
+                  of <strong>SQL Injection</strong>, <strong>CSRF</strong>, and
+                  <strong>XSS vulnerabilities</strong>. The once vulnerable web
+                  application was now fortified, ready to stand strong against common attacks.
                 </p>
                 <p className="mb-4">
-                  Just a few days ago, the thought of juggling separate key
-                  pairs, managing file-based inputs and outputs, and ensuring
-                  flawless verification had kept him up at night. Although he
-                  sometimes felt that these strict guidelines were more about
-                  mere compliance than innovation, deep down he knew that this
-                  structured approach sharpened his technical acumen and
-                  disciplined his methods.
+                  The sun was starting to rise, and with a contented sigh,
+                  Eli Tan whispered, <q><em>Another demon defeated.</em></q>
                 </p>
                 <p className="mb-4">
-                  When the terminal output confirmed that the decrypted message
-                  read <code>"We love CMSC 134 and Sir Eli"</code>, a surge of
-                  triumph swept over him. The seamless integration of
-                  encryption, signing, and verification demonstrated that his
-                  secure communication system was both reliable and effective.
-                </p>
-                <p className="mb-4">
-                  Glancing at the clock, Eli Tan realized it was nearly 10:30
-                  AM—he was already late for his{" "}
-                  <code className="language-python">CMSC 134</code> class!
-                  Despite his occasional frustrations with rigid assignment
-                  requirements, he appreciated that such discipline was
-                  essential for tackling real-world cybersecurity challenges.
-                </p>
-                <p>
-                  With a final satisfied nod at his accomplishment, he quickly
-                  gathered his things, ready to head out—late for class, yet
-                  confident in his mastery of another formidable cybersecurity
-                  challenge.
+                  He closed his laptop and drifted off to sleep, knowing that he had grown
+                  stronger—both as a developer and a security warrior.
                 </p>
               </section>
 
