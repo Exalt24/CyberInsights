@@ -144,8 +144,19 @@ export default function Home() {
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 py-10">
         <BlogCard
-          href="/posts/post4"
+          href="/posts/post5"
           isFeatured={true}
+          imageSrc="/images/posts/post5.png"
+          altText="Blog Image"
+          date="May 19, 2025"
+          title="The Dual Edge of Digital Anonymity: A Commentary on Tor"
+          description="Eli Tan delves into the ethical landscape of Tor—charting its origins in privacy protection, the dark underbelly of illegal use, and pragmatic paths to safeguard freedom without enabling harm."
+          isDarkMode={isDarkMode}
+        />
+
+        <BlogCard
+          href="/posts/post4"
+          isFeatured={false}
           imageSrc="/images/posts/post4.jpg"
           altText="Blog Image"
           date="April 27, 2025"
